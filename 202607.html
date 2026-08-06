@@ -1461,7 +1461,7 @@
   updateHeaderHeights();
   window.addEventListener('resize', updateHeaderHeights);
 
-  function showTab(key) {
+  function showTab(key, scroll = true) {
     ALL_IDS.forEach(id => {
       const el = document.getElementById(id);
       if (el) el.style.display = (id === TAB_MAP[key]) ? '' : 'none';
@@ -1469,7 +1469,12 @@
     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
       btn.classList.toggle('active', Object.keys(TAB_MAP)[i] === key);
     });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (history.replaceState) {
+      history.replaceState(null, '', '#' + key);
+    } else {
+      location.hash = key;
+    }
+    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   const btn = document.getElementById('backToTop');
@@ -1484,7 +1489,10 @@
   new ResizeObserver(checkScrollable).observe(document.body);
   checkScrollable();
 
-  showTab('ios');
+  (function initTabFromHash() {
+    const hash = location.hash.replace('#', '');
+    showTab((hash && TAB_MAP[hash]) ? hash : 'ios', false);
+  })();
 </script>
 
 </body>
