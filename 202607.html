@@ -2,7 +2,12 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=5.0">
+<style>
+  @media (max-width: 600px) {
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  }
+</style>
 <title>台灣手遊情報 — 2026年7月</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=DM+Mono:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
@@ -1618,6 +1623,15 @@
     document.getElementById('searchNext').disabled = searchMatches.length === 0;
   }
 
+  function scrollToMark(mark) {
+    const headerVal = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--total-header-height')) || 150;
+    const panel = document.getElementById('searchPanel');
+    const panelExtra = (panel && panel.classList.contains('open')) ? panel.offsetHeight + 16 : 0;
+    const rect = mark.getBoundingClientRect();
+    const targetY = window.scrollY + rect.top - headerVal - panelExtra - 16;
+    window.scrollTo({ top: Math.max(targetY, 0), behavior: 'smooth' });
+  }
+
   function goToMatch(idx) {
     searchMatches.forEach(m => m.classList.remove('active'));
     const mark = searchMatches[idx];
@@ -1625,7 +1639,7 @@
     mark.classList.add('active');
     const key = getSectionKeyForNode(mark);
     if (key) showTab(key, false);
-    mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    scrollToMark(mark);
     updateSearchCount();
   }
 
