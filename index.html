@@ -92,25 +92,28 @@
     margin: 0 auto;
   }
 
-  .feature-section,
-  .archive-section {
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 2rem 2.5rem;
-  }
-
   .feature-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: 3.5rem;
   }
 
-  /* ── FEATURE / 專題研究 (沿用 issue-card 樣式，僅換色) ── */
+  .archive-section {}
+
+  /* ── FEATURE / 專題研究 ── */
   .issue-card.feature:hover { background: #fffaf3; }
   .issue-card.feature:hover .issue-arrow { color: var(--gold); }
 
   .issue-title-row {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
+    gap: 1rem;
+  }
+
+  .issue-title-row::before {
+    content: '';
+    width: 5px;
+    align-self: stretch;
+    background: var(--gold);
+    flex-shrink: 0;
   }
 
   .issue-card.feature .issue-title {
@@ -149,6 +152,15 @@
     align-items: center;
     gap: 0.75rem;
   }
+
+  .section-bar {
+    height: 5px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-section .section-bar { background: var(--gold); }
+  .archive-section .section-bar { background: var(--accent-blue); }
 
   .section-label::after {
     content: '';
@@ -387,7 +399,7 @@
     .masthead-right { padding: 0.75rem 1.5rem; }
     .pub-name { font-size: 38px; }
     main { padding: 2.5rem 2rem; max-width: 860px; }
-    .feature-section, .archive-section { padding: 1.75rem 2rem; }
+    .feature-section { margin-bottom: 2.75rem; }
     .issue-card { padding: 1.75rem 2rem 1.75rem 0; }
     .issue-card.grid-aug { padding: 0 1.5rem 1.5rem 0; }
     .issue-card.grid-jul { padding: 0 0 1.5rem 1.5rem; }
@@ -399,7 +411,6 @@
 
   /* ── RWD Narrow (max 680px) ── 網格再縮小間距與字級 ── */
   @media (max-width: 680px) {
-    .feature-section, .archive-section { padding: 1.5rem; }
     .issue-month { font-size: 32px; }
     .issue-year { font-size: 16px; }
     .issue-card.grid-aug { padding: 0 1.1rem 1.25rem 0; }
@@ -448,7 +459,7 @@
     /* Main */
     main { padding: 1.75rem 1.25rem; }
     .section-label { font-size: 9px; letter-spacing: 0.14em; }
-    .feature-section, .archive-section { padding: 1.25rem; border-radius: 4px; }
+    .feature-section { margin-bottom: 2.25rem; }
     .feature-section .issue-card { padding: 1.25rem 1.5rem 1.25rem 0; }
 
     /* Issue cards: 手機版縮小字級與間距 */
@@ -493,6 +504,7 @@
 <main>
 
   <section class="feature-section">
+    <div class="section-bar"></div>
     <div class="section-label">SPECIAL REPORT · 專題研究</div>
     <a class="issue-card feature" href="taiwan-indie-games_202609.html">
       <div class="issue-body">
@@ -506,6 +518,7 @@
   </section>
 
   <section class="archive-section">
+    <div class="section-bar"></div>
     <div class="section-label">ISSUES · 月報彙整</div>
 
     <div class="archive-grid">
