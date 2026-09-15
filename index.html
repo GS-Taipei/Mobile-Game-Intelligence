@@ -87,9 +87,46 @@
   main {
     flex: 1;
     padding: 3rem 4rem;
-    max-width: 860px;
+    max-width: 1180px;
     width: 100%;
     margin: 0 auto;
+  }
+
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "latest feature"
+      "rest   feature";
+    column-gap: 3rem;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .block-latest { grid-area: latest; }
+  .block-rest { grid-area: rest; }
+
+  .block-feature {
+    grid-area: feature;
+    border-left: 1px solid var(--border);
+    padding-left: 3rem;
+  }
+
+  /* ── FEATURE / 專題研究 (沿用 issue-card 樣式，僅換色，移除期號欄) ── */
+  .issue-card.feature::before { background: var(--gold); }
+  .issue-card.feature:hover { background: #fffaf3; }
+  .issue-card.feature:hover .issue-arrow { color: var(--gold); }
+
+  .issue-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .issue-card.feature .issue-title {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 0;
   }
 
   .section-label {
@@ -118,15 +155,12 @@
   }
 
   .issue-card {
-    display: grid;
-    grid-template-columns: 200px 1fr auto;
-    align-items: center;
-    gap: 2.5rem;
-    padding: 2rem 0;
+    display: block;
+    position: relative;
+    padding: 2rem 2.5rem 2rem 0;
     border-bottom: 1px solid var(--border);
     text-decoration: none;
     color: inherit;
-    position: relative;
     transition: all 0.2s ease;
     cursor: pointer;
   }
@@ -164,21 +198,25 @@
   /* 期號 */
   .issue-period {
     line-height: 1;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 0.7rem;
   }
+
+  .issue-period .badge { align-self: center; }
 
   .issue-month {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
+    font-size: 40px;
     letter-spacing: 0.04em;
-    display: block;
   }
 
   .issue-year {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: 0.06em;
-    display: block;
-    margin-top: 2px;
   }
 
   .issue-card.latest .issue-month {
@@ -302,11 +340,13 @@
 
   /* 箭頭 */
   .issue-arrow {
+    position: absolute;
+    top: 2rem;
+    right: 0;
     font-family: 'DM Mono', monospace;
     font-size: 20px;
     color: var(--border);
     transition: all 0.2s ease;
-    flex-shrink: 0;
   }
 
   .issue-card:hover .issue-arrow {
@@ -364,11 +404,20 @@
     .masthead-left { padding: 1.25rem 2rem 1rem; }
     .masthead-right { padding: 0.75rem 1.5rem; }
     .pub-name { font-size: 38px; }
-    main { padding: 2.5rem 2rem; }
-    .issue-card { grid-template-columns: 160px 1fr auto; gap: 1.5rem; }
+    main { padding: 2.5rem 2rem; max-width: 860px; }
+    .main-grid { grid-template-columns: 1fr 1fr; column-gap: 2rem; }
+    .block-feature { padding-left: 2rem; }
+    .issue-card { padding: 1.75rem 2rem 1.75rem 0; }
     .issue-card::before { left: -2rem; }
     .issue-card:hover { padding-left: 0.75rem; margin-left: -0.75rem; padding-right: 0.75rem; }
     footer { padding: 1rem 2rem; }
+  }
+
+  /* ── RWD Narrow (max 680px) ── 手機寬度仍維持左右兩欄，僅再縮小間距 ── */
+  @media (max-width: 680px) {
+    .main-grid { column-gap: 1.25rem; }
+    .block-feature { padding-left: 1.25rem; }
+    .issue-card { padding: 1.5rem 1.75rem 1.5rem 0; }
   }
 
   /* ── RWD Mobile (max 600px) ── */
@@ -391,11 +440,9 @@
     main { padding: 1.75rem 1.25rem; }
     .section-label { font-size: 9px; letter-spacing: 0.14em; }
 
-    /* Issue cards: 手機版三欄縮小 */
+    /* Issue cards: 手機版縮小字級與間距 */
     .issue-card {
-      grid-template-columns: 100px 1fr 24px;
-      gap: 0.75rem;
-      padding: 1.25rem 0;
+      padding: 1.25rem 1.5rem 1.25rem 0;
     }
     .issue-card::before { left: -1.25rem; }
     .issue-card:hover {
@@ -403,16 +450,19 @@
       margin-left: -0.6rem;
       padding-right: 0.6rem;
     }
-    .issue-month { font-size: 30px; }
-    .issue-year { font-size: 15px; margin-top: 1px; }
-    .issue-title { font-size: 14px; margin-bottom: 3px; }
+    .issue-month { font-size: 26px; }
+    .issue-year { font-size: 13px; }
+    .issue-title { font-size: 13px; margin-bottom: 3px; }
+    .issue-card.feature .issue-title { font-size: 16px; }
     .issue-desc { font-size: 10px; line-height: 1.6; }
     .issue-desc span { display: block; margin-right: 0; }
-    .issue-desc-headline { font-size: 12.5px; margin-bottom: 4px; }
+    .issue-desc-headline { font-size: 12px; margin-bottom: 4px; }
     .issue-desc-list { font-size: 10px; line-height: 1.6; padding-left: 1em; }
     .issue-badges { margin-bottom: 4px; height: auto !important; }
     .badge { font-size: 8px; padding: 1px 6px; }
-    .issue-arrow { font-size: 15px; }
+    .issue-arrow { font-size: 14px; top: 1.25rem; }
+    .main-grid { column-gap: 0.9rem; }
+    .block-feature { padding-left: 0.9rem; }
 
     /* Footer */
     footer {
@@ -441,91 +491,106 @@
 </header>
 
 <main>
-  <div class="section-label">ARCHIVE · 月報彙整</div>
+  <div class="main-grid">
 
-  <div class="issues">
+    <div class="block-latest">
+      <div class="section-label">ISSUES · 月報彙整</div>
+      <div class="issues">
 
-    <!-- JUL 2026 ── 最新期 -->
-    <a class="issue-card latest" href="202607.html">
-      <div class="issue-period">
-        <span class="issue-month">JUL</span>
-        <span class="issue-year">2026</span>
-      </div>
-      <div class="issue-body">
-        <div class="issue-badges">
-          <span class="badge badge-new">NEW</span>
-        </div>
-        <div class="issue-title">七月月報</div>
-        <div class="issue-desc">
-          <div class="issue-desc-headline">Garena傳說對決 重奪收入冠軍</div>
-          <ul class="issue-desc-list">
-            <li>Pokémon GO 從第 32 名暴衝至第 6，十週年活動節奏帶動全球同步噴發</li>
-            <li>hololive Dreams、瑪奇 Mobile 雙雙首發即衝上雙榜，IP 認同度與付費設計缺一不可</li>
-          </ul>
-        </div>
-      </div>
-      <div class="issue-arrow">→</div>
-    </a>
+        <!-- AUG 2026 ── 最新期 -->
+        <a class="issue-card latest stacked" href="202608.html">
+          <div class="issue-period">
+            <span class="issue-month">AUG</span>
+            <span class="issue-year">2026</span>
+            <span class="badge badge-new">NEW</span>
+          </div>
+          <div class="issue-arrow">→</div>
+          <div class="issue-body">
+            <div class="issue-desc">
+              <div class="issue-desc-headline">寒霜啟示錄連兩月穩坐冠軍，賽爾號：巔峰之戰空降雙榜冠軍</div>
+              <ul class="issue-desc-list">
+                <li>三國群英傳：策定九州靠 28 年老字號 IP 品牌力突圍，勝過同題材新品牌</li>
+                <li>爆爆王、劍俠世界：起源等多款老遊戲同月吹熄燈號，情懷經濟正反兩面並陳</li>
+              </ul>
+            </div>
+          </div>
+        </a>
 
-    <!-- JUN 2026 -->
-    <a class="issue-card" href="202606.html">
-      <div class="issue-period">
-        <span class="issue-month">JUN</span>
-        <span class="issue-year">2026</span>
       </div>
-      <div class="issue-body">
-        <div class="issue-badges" style="height:22px;"></div>
-        <div class="issue-title">六月月報</div>
-        <div class="issue-desc">
-          <div class="issue-desc-headline">暑假效應帶動流量紅利</div>
-          <ul class="issue-desc-list">
-            <li>6-8 月暑假效應帶動台灣手遊下載量與活躍用戶季節性高峰，廠商集體搶佔流量紅利</li>
-            <li>韓國市場出現歷史性轉折：中系 SLG 三強合計收入首次超越天堂系列，市場主導權悄然易主</li>
-          </ul>
-        </div>
-      </div>
-      <div class="issue-arrow">→</div>
-    </a>
+    </div>
 
-    <!-- MAY 2026 -->
-    <a class="issue-card" href="202605.html">
-      <div class="issue-period">
-        <span class="issue-month">MAY</span>
-        <span class="issue-year">2026</span>
+    <div class="block-feature">
+      <div class="section-label">SPECIAL REPORT · 專題研究</div>
+      <div class="issues">
+        <a class="issue-card feature" href="taiwan-indie-games_202609.html">
+          <div class="issue-body">
+            <div class="issue-title-row">
+              <span class="issue-title">台灣獨立遊戲產業觀察</span>
+              <span class="badge badge-new">NEW</span>
+            </div>
+          </div>
+          <div class="issue-arrow">→</div>
+        </a>
       </div>
-      <div class="issue-body">
-        <div class="issue-badges" style="height:22px;"></div>
-        <div class="issue-title">五月月報</div>
-        <div class="issue-desc">
-          <div class="issue-desc-headline">傳說對決奪冠</div>
-          <ul class="issue-desc-list">
-            <li>戀與深空躍升至第 8，女性向付費力正式打入主流榜單</li>
-            <li>超時空街球對決、青丘世界：緣起以本土 KOL 代言策略突圍，為台廠新遊最佳示範</li>
-          </ul>
-        </div>
-      </div>
-      <div class="issue-arrow">→</div>
-    </a>
+    </div>
 
-    <!-- APR 2026 -->
-    <a class="issue-card" href="202604.html">
-      <div class="issue-period">
-        <span class="issue-month">APR</span>
-        <span class="issue-year">2026</span>
+    <div class="block-rest">
+      <div class="issues">
+
+        <!-- JUL 2026 -->
+        <a class="issue-card" href="202607.html">
+          <div class="issue-period">
+            <span class="issue-month">JUL</span>
+            <span class="issue-year">2026</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-badges" style="height:22px;"></div>
+            <div class="issue-title">Garena傳說對決 重奪收入冠軍</div>
+          </div>
+          <div class="issue-arrow">→</div>
+        </a>
+
+        <!-- JUN 2026 -->
+        <a class="issue-card" href="202606.html">
+          <div class="issue-period">
+            <span class="issue-month">JUN</span>
+            <span class="issue-year">2026</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-badges" style="height:22px;"></div>
+            <div class="issue-title">寒霜啟示錄 收入冠軍</div>
+          </div>
+          <div class="issue-arrow">→</div>
+        </a>
+
+        <!-- MAY 2026 -->
+        <a class="issue-card" href="202605.html">
+          <div class="issue-period">
+            <span class="issue-month">MAY</span>
+            <span class="issue-year">2026</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-badges" style="height:22px;"></div>
+            <div class="issue-title">Garena傳說對決 收入冠軍</div>
+          </div>
+          <div class="issue-arrow">→</div>
+        </a>
+
+        <!-- APR 2026 -->
+        <a class="issue-card" href="202604.html">
+          <div class="issue-period">
+            <span class="issue-month">APR</span>
+            <span class="issue-year">2026</span>
+          </div>
+          <div class="issue-body">
+            <div class="issue-badges" style="height:22px;"></div>
+            <div class="issue-title">Pikmin Bloom 收入冠軍</div>
+          </div>
+          <div class="issue-arrow">→</div>
+        </a>
+
       </div>
-      <div class="issue-body">
-        <div class="issue-badges" style="height:22px;"></div>
-        <div class="issue-title">四月月報</div>
-        <div class="issue-desc">
-          <div class="issue-desc-headline">Pikmin Bloom 奪冠</div>
-          <ul class="issue-desc-list">
-            <li>Century Games SLG 雙雄合計近 $5M，策略品類付費力持續被低估</li>
-            <li>異環月底上線掀話題，無盡輪迴大甲鎮瀾宮聯名創本土文化行銷新標竿</li>
-          </ul>
-        </div>
-      </div>
-      <div class="issue-arrow">→</div>
-    </a>
+    </div>
 
   </div>
 
