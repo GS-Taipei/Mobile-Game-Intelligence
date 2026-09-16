@@ -64,28 +64,31 @@
     background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 50%, var(--accent-blue) 50%, var(--accent-blue) 100%);
   }
 
-  .masthead-left,
-  .masthead-left:link,
-  .masthead-left:visited,
-  .masthead-left:hover,
-  .masthead-left:active {
+  a.masthead-left,
+  a.masthead-left:link,
+  a.masthead-left:visited,
+  a.masthead-left:hover,
+  a.masthead-left:active {
     padding: 2rem 2.5rem 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-right: 1px solid var(--border);
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
     cursor: pointer;
     transition: opacity 0.15s ease;
   }
 
-  .masthead-left .pub-name,
-  .masthead-left .pub-sub {
-    text-decoration: none;
+  a.masthead-left .pub-name,
+  a.masthead-left .pub-sub,
+  a.masthead-left:visited .pub-name,
+  a.masthead-left:visited .pub-sub {
+    text-decoration: none !important;
+    color: inherit !important;
   }
 
-  .masthead-left:hover {
+  a.masthead-left:hover {
     opacity: 0.75;
   }
 
