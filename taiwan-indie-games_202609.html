@@ -32,7 +32,7 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4{font-family:"Noto Serif TC",serif;margin:0;}
-  p{color:var(--ink-soft);max-width:720px;line-height:1.75;}
+  p{color:var(--ink-soft);max-width:none;line-height:1.75;}
   a{color:var(--red);text-decoration:none;border-bottom:1px solid var(--line-strong);}
   a:hover{border-bottom-color:var(--red);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
@@ -70,7 +70,7 @@
   .transition-note{font-size:14px;color:var(--ink-soft);max-width:640px;margin-bottom:32px;padding:14px 18px;background:var(--paper-2);border-left:2px solid var(--gold);}
 
   .insight-groups{margin-bottom:44px;}
-  .group-intro{font-size:13.5px;color:var(--ink-soft);max-width:720px;margin:10px 0 20px;}
+  .group-intro{font-size:13.5px;color:var(--ink-soft);max-width:none;margin:10px 0 20px;}
   .insight-card.plain{padding-left:0;}
 
   .strength-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px;}
@@ -108,16 +108,31 @@
     .path-grid{grid-template-columns:1fr;}
   }
   @media (max-width:700px){
-    .stage-flow{flex-direction:column;}
-    .stage-arrow{transform:rotate(90deg);padding:4px 0;}
+    .stage-flow{gap:4px;}
+    .stage-box{padding:10px 4px;}
+    .stage-box .stage-num{font-size:9px;margin-bottom:3px;}
+    .stage-box h5{font-size:11px;margin-bottom:3px;}
+    .stage-box p{font-size:9px;}
+    .stage-arrow{padding:0 2px;font-size:13px;}
     .strength-grid{grid-template-columns:1fr;}
     .compact-grid{grid-template-columns:1fr;}
     .compact-card.full{grid-column:auto;}
   }
 
   .tabnav-outer{position:sticky;top:var(--mastbar-h);z-index:20;background:var(--paper);border-bottom:1px solid var(--line);}
-  .tabnav{max-width:var(--maxw);margin:0 auto;padding:12px 28px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .tabnav-shell{position:relative;max-width:var(--maxw);margin:0 auto;}
+  .tabnav{padding:12px 40px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
   .tabnav::-webkit-scrollbar{display:none;}
+  .tabnav-arrow{
+    position:absolute;top:0;bottom:0;
+    width:34px;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;color:var(--ink);z-index:6;
+  }
+  .tabnav-arrow.left{left:0;background:linear-gradient(to right,var(--paper) 55%,transparent);justify-content:flex-start;padding-left:6px;}
+  .tabnav-arrow.right{right:0;background:linear-gradient(to left,var(--paper) 55%,transparent);justify-content:flex-end;padding-right:6px;}
+  .tabnav-arrow.is-hidden{visibility:hidden;opacity:0;}
+  .tabnav-arrow:hover{color:var(--red);}
   .tabbtn{
     position:relative;
     flex:0 0 auto;
@@ -161,8 +176,8 @@
   .t-item::before{content:"";position:absolute;left:-31px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 4px var(--paper);}
   .t-year{font-family:"Noto Serif TC",serif;font-size:13.5px;color:var(--red);font-weight:700;margin-bottom:3px;}
   .t-title{font-size:16.5px;font-weight:700;margin-bottom:4px;}
-  .t-desc{font-size:13.5px;color:var(--muted);margin:0;max-width:720px;}
-  .t-policy{margin-top:16px;max-width:720px;}
+  .t-desc{font-size:13.5px;color:var(--muted);margin:0;max-width:none;}
+  .t-policy{margin-top:16px;max-width:none;}
   .t-policy-steps{font-size:12.5px;color:var(--muted);line-height:1.8;margin:0 0 16px;max-width:none;}
   .t-policy-steps b{color:var(--ink);font-weight:700;}
 
@@ -186,6 +201,18 @@
 
   @media (max-width:820px){
     .studio-profile{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:600px){
+    .table-scroll table{min-width:0;}
+    table{font-size:11px;}
+    th,td{padding:7px 6px;}
+    th{font-size:10.5px;}
+  }
+
+  @media (max-width:420px){
+    table{font-size:10px;}
+    th,td{padding:6px 4px;}
   }
 
   table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:0;}
@@ -229,10 +256,10 @@
   .insight-card{border-top:1px solid var(--line-strong);padding-top:16px;margin-bottom:28px;position:relative;padding-left:44px;}
   .insight-card .i-num{position:absolute;left:0;top:16px;font-family:"Noto Serif TC",serif;color:var(--red-soft);font-size:14px;font-weight:700;}
   .insight-card h4{font-size:14.5px;margin-bottom:8px;font-weight:700;color:var(--ink);}
-  .insight-card p{font-size:13.5px;max-width:720px;}
+  .insight-card p{font-size:13.5px;max-width:none;}
   .insight-note{font-size:12px;color:var(--muted);font-style:italic;}
   .closing{margin-top:32px;border-top:1px solid var(--line);padding-top:22px;}
-  .closing p{max-width:720px;font-size:14px;}
+  .closing p{max-width:none;font-size:14px;}
 
   /* ---------- OVERVIEW EXTRAS ---------- */
   .hero-quote{
@@ -266,7 +293,7 @@
   .glossary-list .glossary-item:last-child{border-bottom:1px solid var(--line-strong);}
   .glossary-term{font-family:"Noto Serif TC",serif;font-weight:700;font-size:14.5px;color:var(--ink);}
   .glossary-term .g-sub{display:block;font-family:"Noto Sans TC",sans-serif;font-weight:400;font-size:11px;color:var(--muted);margin-top:3px;}
-  .glossary-desc{font-size:13px;color:var(--ink-soft);max-width:720px;}
+  .glossary-desc{font-size:13px;color:var(--ink-soft);max-width:none;}
   @media (max-width:820px){.glossary-item{grid-template-columns:1fr;}}
 
   footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;}
@@ -326,16 +353,20 @@
 </header>
 
 <div class="tabnav-outer">
-  <nav class="tabnav">
-    <button class="tabbtn active" data-tab="t1">總覽</button>
-    <button class="tabbtn" data-tab="t2">發展脈絡</button>
-    <button class="tabbtn" data-tab="t3">代表團隊</button>
-    <button class="tabbtn" data-tab="t4">台灣作品觀察</button>
-    <button class="tabbtn" data-tab="t6">開發中作品</button>
-    <button class="tabbtn is-analysis" data-tab="t8">商業化剖析</span></button>
-    <button class="tabbtn" data-tab="t9">全球市場對照</button>
-    <button class="tabbtn" data-tab="t10">專有名詞說明</button>
-  </nav>
+  <div class="tabnav-shell">
+    <button class="tabnav-arrow left" id="tabArrowLeft" aria-label="向左捲動">‹</button>
+    <nav class="tabnav">
+      <button class="tabbtn active" data-tab="t1">總覽</button>
+      <button class="tabbtn" data-tab="t2">發展脈絡</button>
+      <button class="tabbtn" data-tab="t3">代表團隊</button>
+      <button class="tabbtn" data-tab="t4">台灣作品觀察</button>
+      <button class="tabbtn" data-tab="t6">開發中作品</button>
+      <button class="tabbtn is-analysis" data-tab="t8">商業化剖析</button>
+      <button class="tabbtn" data-tab="t9">全球市場對照</button>
+      <button class="tabbtn" data-tab="t10">專有名詞說明</button>
+    </nav>
+    <button class="tabnav-arrow right" id="tabArrowRight" aria-label="向右捲動">›</button>
+  </div>
 </div>
 
 <div class="wrap" id="content-wrap">
@@ -520,23 +551,23 @@
     <p style="margin-bottom:22px;font-size:13.5px;">TGS 2026 台灣代表隊(9/17-21 東京電玩展即將登場)</p>
     <div class="game-grid">
       <div class="game-card">
-        <img class="g-kv" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3230380/header.jpg" alt="阿雷塔 YARETA" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3230380/e214501a49509e51f9120c479977b8b9bc82c4d0/header_tchinese.jpg?t=1789411339" alt="阿雷塔 YARETA" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/3230380/YARETA/" target="_blank" rel="noopener">阿雷塔 YARETA</a></div><div class="g-tag">海溝遊戲</div><div class="g-desc">開放世界探索，拿下 SI80 Gold Award(全球僅 8 款)。</div></div>
       </div>
       <div class="game-card">
-        <img class="g-kv" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4333980/header.jpg" alt="自拍蟲蟲" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4333980/d435086c3097d752ffa88816c7700c593b8d2555/header.jpg?t=1787714806" alt="自拍蟲蟲" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/4333980/Selfie_Worm/" target="_blank" rel="noopener">自拍蟲蟲</a></div><div class="g-tag">正直香蕉遊戲工作室</div><div class="g-desc">入圍 Sense of Wonder Night 2026 決賽 8 強，已於 8/14 正式發售。</div></div>
       </div>
       <div class="game-card">
-        <img class="g-kv" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2705820/header.jpg" alt="再見的備份" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2705820/header_tchinese.jpg?t=1786701389" alt="再見的備份" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/2705820/Some_Goodbyes_We_Made/" target="_blank" rel="noopener">再見的備份</a></div><div class="g-tag">慢走遊戲</div><div class="g-desc">11 款小遊戲拼貼道別主題，入選 SI80。</div></div>
       </div>
       <div class="game-card">
-        <img class="g-kv" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2325390/header.jpg" alt="AirBoost：天空機士" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2325390/header_tchinese.jpg?t=1776306838" alt="AirBoost：天空機士" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/2325390" target="_blank" rel="noopener">AirBoost：天空機士</a></div><div class="g-tag">個人開發者</div><div class="g-desc">試玩版公開中，7,000+ 願望清單。</div></div>
       </div>
       <div class="game-card">
-        <img class="g-kv" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3196150/header.jpg" alt="Lami" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3196150/header.jpg?t=1789374005" alt="Lami" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/3196150" target="_blank" rel="noopener">Lami: A Cup of Code & Coffee</a></div><div class="g-tag">咖啡店經營敘事</div><div class="g-desc">募資中，4,000+ 願望清單。</div></div>
       </div>
     </div>
@@ -829,6 +860,21 @@
   buttons.forEach(btn => {
     btn.addEventListener('click', () => activateTab(btn.dataset.tab));
   });
+
+  const tabnavScroll = document.querySelector('.tabnav');
+  const arrowLeft = document.getElementById('tabArrowLeft');
+  const arrowRight = document.getElementById('tabArrowRight');
+  function updateTabArrows(){
+    const maxScroll = tabnavScroll.scrollWidth - tabnavScroll.clientWidth;
+    arrowLeft.classList.toggle('is-hidden', tabnavScroll.scrollLeft <= 4);
+    arrowRight.classList.toggle('is-hidden', tabnavScroll.scrollLeft >= maxScroll - 4);
+  }
+  arrowLeft.addEventListener('click', () => tabnavScroll.scrollBy({left: -160, behavior: 'smooth'}));
+  arrowRight.addEventListener('click', () => tabnavScroll.scrollBy({left: 160, behavior: 'smooth'}));
+  tabnavScroll.addEventListener('scroll', updateTabArrows);
+  window.addEventListener('resize', updateTabArrows);
+  window.addEventListener('load', updateTabArrows);
+  updateTabArrows();
 </script>
 
 </body>
