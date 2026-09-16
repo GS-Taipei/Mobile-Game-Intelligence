@@ -60,7 +60,8 @@
   .masthead-rule{height:1px;background:var(--ink);width:56px;margin:18px 0 16px;}
   .eyebrow{font-size:13.5px;color:var(--gold);font-family:"Noto Serif TC",serif;font-weight:700;margin-bottom:10px;}
   header h1{font-size:clamp(28px,4.2vw,40px);font-weight:900;line-height:1.32;}
-  header h1 span{color:var(--red);}
+  .brush-mark{position:relative;display:inline-block;}
+  .brush-mark svg{position:absolute;left:-2%;bottom:-.08em;width:104%;height:.3em;overflow:visible;}
   header p{margin-top:14px;font-size:15.5px;max-width:none;}
   .stat-strip{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
   .stat-chip{border:1px solid var(--line-strong);padding:13px 18px;min-width:140px;background:var(--paper-2);}
@@ -258,6 +259,8 @@
   .insight-card h4{font-size:14.5px;margin-bottom:8px;font-weight:700;color:var(--ink);}
   .insight-card p{font-size:13.5px;max-width:none;}
   .insight-note{font-size:12px;color:var(--muted);font-style:italic;}
+  .trend-svg{width:100%;height:auto;margin:18px 0 6px;}
+  .note-mark{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;border:1px solid var(--muted);color:var(--muted);font-family:"Noto Serif TC",serif;font-style:normal;font-size:9px;margin-right:5px;transform:translateY(-1px);}
   .closing{margin-top:32px;border-top:1px solid var(--line);padding-top:22px;}
   .closing p{max-width:none;font-size:14px;}
 
@@ -271,7 +274,6 @@
     max-width:none;
     margin-bottom:8px;
   }
-  .hero-quote span{color:var(--red);}
   .hero-quote-sub{font-size:13.5px;color:var(--muted);margin-bottom:44px;}
   .pillar-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:8px;}
   .pillar{background:var(--paper);padding:24px 20px;}
@@ -340,7 +342,7 @@
     <div class="masthead-meta">
 
     </div>
-    <h1>小團隊，說出<span>全世界</span>都聽得懂的台灣故事</h1>
+    <h1>小團隊，說出<span class="brush-mark">全世界<svg viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><path d="M1 11 Q 18 17, 34 10 T 68 8 T 99 12" stroke="#A6303B" stroke-width="6" fill="none" stroke-linecap="round"/></svg></span>都聽得懂的台灣故事</h1>
     <div class="masthead-rule"></div>
     <p>從《返校》的白色恐怖記憶，到《OPUS》系列的溫暖科幻——十年間，台灣獨立遊戲用敘事而非預算，走上了國際舞台。</p>
     <div class="stat-strip">
@@ -373,7 +375,7 @@
 
   <!-- TAB 1 -->
   <section id="t1" class="panel active">
-    <div class="hero-quote">遊戲不需要好萊塢等級的預算，才能打動全世界——只需要一個<span>誠實的在地故事</span>。</div>
+    <div class="hero-quote">遊戲不需要好萊塢等級的預算，才能打動全世界——只需要一個<span class="brush-mark">誠實的在地故事<svg viewBox="0 0 100 14" preserveAspectRatio="none" aria-hidden="true"><path d="M1 8 Q 25 13, 50 7 T 99 9" stroke="#B4880B" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span>。</div>
     <p class="hero-quote-sub">過去十年，一群個位數到十餘人的小團隊，靠敘事與文化認同走上國際舞台。</p>
 
     <div class="pillar-grid">
@@ -527,7 +529,7 @@
       <tr><td>台灣Steam獨立遊戲累計收錄</td><td class="strong">188款</td><td>FilterGame 資料庫，至2025/5</td></tr>
       <tr><td>2025年度新作</td><td class="strong">30+款</td><td>FilterGame「2025台灣遊戲創作回顧計畫」</td></tr>
     </table></div>
-    <p class="table-caption">*** 說明：目前沒有官方逐年統計數據，以上為社群自發盤點的粗估數字。</p>
+    <p class="table-caption"><i class="note-mark">註</i>說明：目前沒有官方逐年統計數據，以上為社群自發盤點的粗估數字。</p>
 
     <h4 class="subhead">代表作品的類型熱度觀察</h4>
     <div class="table-scroll"><table>
@@ -539,7 +541,7 @@
       <tr><td>休閒/解謎</td><td class="strong"><a href="https://store.steampowered.com/app/1634150/Behind_the_Frame_The_Finest_Scenery/" target="_blank" rel="noopener">Behind the Frame</a></td><td>1,764+</td><td>93%</td><td>—</td></tr>
       <tr><td>動作 RPG</td><td class="strong"><a href="https://store.steampowered.com/app/1792600/Dusk_Diver_2/" target="_blank" rel="noopener">Dusk Diver 2</a></td><td>75</td><td>88%</td><td>—</td></tr>
     </table></div>
-    <p class="table-caption">*** 觀察：敘事型(恐怖／科幻)是最強賽道；本土文化題材動作遊戲有基本盤但黏著度較低；音樂節奏類主戰場在手機而非 Steam。樣本為已成名代表作，非隨機抽樣，不代表全體類型平均表現。</p>
+    <p class="table-caption"><i class="note-mark">註</i>觀察：敘事型(恐怖／科幻)是最強賽道；本土文化題材動作遊戲有基本盤但黏著度較低；音樂節奏類主戰場在手機而非 Steam。樣本為已成名代表作，非隨機抽樣，不代表全體類型平均表現。</p>
   </section>
 
   <!-- TAB 6 -->
@@ -551,7 +553,7 @@
     <p style="margin-bottom:22px;font-size:13.5px;">TGS 2026 台灣代表隊(9/17-21 東京電玩展即將登場)</p>
     <div class="game-grid">
       <div class="game-card">
-        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3230380/e214501a49509e51f9120c479977b8b9bc82c4d0/header_tchinese.jpg?t=1789411339" alt="阿雷塔 YARETA" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3230380/540248234f5444dadac4e823629799456bc51d14/header.jpg?t=1789411339" alt="阿雷塔 YARETA" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/3230380/YARETA/" target="_blank" rel="noopener">阿雷塔 YARETA</a></div><div class="g-tag">海溝遊戲</div><div class="g-desc">開放世界探索，拿下 SI80 Gold Award(全球僅 8 款)。</div></div>
       </div>
       <div class="game-card">
@@ -559,7 +561,7 @@
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/4333980/Selfie_Worm/" target="_blank" rel="noopener">自拍蟲蟲</a></div><div class="g-tag">正直香蕉遊戲工作室</div><div class="g-desc">入圍 Sense of Wonder Night 2026 決賽 8 強，已於 8/14 正式發售。</div></div>
       </div>
       <div class="game-card">
-        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2705820/header_tchinese.jpg?t=1786701389" alt="再見的備份" onerror="this.style.display='none';">
+        <img class="g-kv" src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2705820/header.jpg?t=1786701389" alt="再見的備份" onerror="this.style.display='none';">
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/2705820/Some_Goodbyes_We_Made/" target="_blank" rel="noopener">再見的備份</a></div><div class="g-tag">慢走遊戲</div><div class="g-desc">11 款小遊戲拼貼道別主題，入選 SI80。</div></div>
       </div>
       <div class="game-card">
@@ -571,7 +573,7 @@
         <div class="g-body"><div class="g-name"><a href="https://store.steampowered.com/app/3196150" target="_blank" rel="noopener">Lami: A Cup of Code & Coffee</a></div><div class="g-tag">咖啡店經營敘事</div><div class="g-desc">募資中，4,000+ 願望清單。</div></div>
       </div>
     </div>
-    <p class="footnote">*** 來源包含東京電玩展官方名單、FilterGame月報與媒體報導，非完整官方資料庫。</p>
+    <p class="footnote"><i class="note-mark">註</i>來源包含東京電玩展官方名單、FilterGame月報與媒體報導，非完整官方資料庫。</p>
   </section>
 
   <!-- TAB 8 -->
@@ -613,7 +615,7 @@
       <div class="insight-card plain">
         <h4>Step 01・資金斷層：補助拿得到，投資門檻還很高</h4>
         <p>數產署的開發獎勵(最高160萬元)申請門檻相對友善，每年約8個名額；但銜接投資的「產品化加值計畫」每年僅1-2個名額，2024年起才有數產署與文策院攜手的「補助＋投資」綠色通道。目前公開報導的首例是「光之語有限公司」(112年度)：拿到開發獎勵後把新遊戲做出來，再透過文策院國發基金投資把 IP 做大、跨域延伸漫畫與小說。</p>
-        <p class="insight-note">*** 目前只查得到這一個正面案例，沒有找到「每年多少團隊申請投資、核准率多少」的公開分母數字——這代表機制存在，但普及率如何仍不明朗，不宜直接推論多數團隊都走得到這一步。</p>
+        <p class="insight-note"><i class="note-mark">註</i>目前只查得到這一個正面案例，沒有找到「每年多少團隊申請投資、核准率多少」的公開分母數字——這代表機制存在，但普及率如何仍不明朗，不宜直接推論多數團隊都走得到這一步。</p>
       </div>
 
       <div class="insight-card plain">
@@ -625,7 +627,7 @@
           <tr><td class="strong">海外發行商代理</td><td>《打鬼》× Neon Doctrine(美國)</td><td>發行商負責多平台移植(Switch/PS/Xbox)與海外行銷，開發商專注做遊戲</td><td>分潤需與發行商拆分，IP 主導權部分讓渡</td></tr>
           <tr><td class="strong">跨國深度合作</td><td>SIGONO ×集英社遊戲(日本)</td><td>資源與跨域 IP 開發(如漫畫)綁在一起，借力大型發行方的通路與資本</td><td>需要磨合創作自主性，合作關係本身也是一種依賴</td></tr>
         </table></div>
-        <p class="table-caption">*** 三種模式沒有絕對優劣，反映的是團隊在不同階段對「資源」與「主控權」的取捨——但值得留意的是，能談成後兩種合作的，都是已經有一定成績、握有談判籌碼的團隊。</p>
+        <p class="table-caption"><i class="note-mark">註</i>三種模式沒有絕對優劣，反映的是團隊在不同階段對「資源」與「主控權」的取捨——但值得留意的是，能談成後兩種合作的，都是已經有一定成績、握有談判籌碼的團隊。</p>
       </div>
 
       <div class="insight-card plain">
@@ -652,7 +654,7 @@
           <p class="path-desc">遊戲本身歷經下架爭議，但 IP 靠電影(金馬5獎)、電視劇(Netflix同步)、條漫延續生命力，反向墊高國際能見度。</p>
         </div>
       </div>
-      <p class="table-caption">*** 這三條路徑目前都只有少數團隊走通，也是為什麼每年被討論的成功案例，多半是同一批名字。</p>
+      <p class="table-caption"><i class="note-mark">註</i>這三條路徑目前都只有少數團隊走通，也是為什麼每年被討論的成功案例，多半是同一批名字。</p>
     </div>
 
     <div class="insight-groups">
@@ -673,12 +675,12 @@
         <div class="compact-card full">
           <h5>跟鄰近市場對照：台灣的位置在哪</h5>
           <p><b>韓國</b>早在 1999 年就立法將遊戲、影視、音樂等內容產業納入國家發展戰略，2012 年更把電競獨立出來另立專法；台灣直到 2017 年才把電競納入運動產業範疇，2020 年才有系統性的獨立遊戲補助——起步時間差了將近 20 年。<b>日本</b>雖是遊戲產業大國，其獨立遊戲圈的國際能見度反而有限：2022 年一場 GDC 講座指出，日本獨立開發者中約 80% 不具備日語以外的語言溝通能力，這道語言門檻同時限制了他們取得海外資訊、參與海外展會的機會。台灣在「政府起步早晚」上輸韓國，卻在「國際曝光主動性」上比日本積極。</p>
-          <p class="insight-note">*** 此段韓、日對照數字分屬不同調查與時間點，僅作為方向性參考，非嚴謹的同基準比較。</p>
+          <p class="insight-note"><i class="note-mark">註</i>此段韓、日對照數字分屬不同調查與時間點，僅作為方向性參考，非嚴謹的同基準比較。</p>
         </div>
         <div class="compact-card full">
           <h5>多元敘事觀察</h5>
           <p>瀏覽台灣獨立遊戲資料庫時，可以注意到不少作品標註「Female Protagonist」「LGBTQ+」等標籤。這只是瀏覽過程中的觀察，沒有量化數據能證明台灣比其他地區的獨立遊戲圈更多元，但至少可以說，在題材選擇上，台灣獨立遊戲並不迴避這類敘事。</p>
-          <p class="insight-note">*** 此段為軟性觀察，非嚴謹統計結論。</p>
+          <p class="insight-note"><i class="note-mark">註</i>此段為軟性觀察，非嚴謹統計結論。</p>
         </div>
       </div>
     </div>
@@ -698,6 +700,34 @@
     </div>
     <p style="margin-bottom:24px;font-size:13px;color:var(--muted);">資料來源：GameDiscoverCo(2026/9/4 發布)、Steam 官方即時榜單、第三方 Steam 社群追蹤站(SteamCharts、activeplayer.io)。營收數字皆為<b>美元</b>。此對照組用意不在直接比較量級，而是提供背景脈絡。</p>
 
+    <h4 class="subhead">先看大局：這些排行榜，都發生在一個持續成長的市場裡</h4>
+    <p class="group-intro">後面這些即時排行榜都只是 Steam／PC 生態圈的一個切片。把時間拉長來看，全球 PC 遊戲市場從 2008 年到現在大致成長了 4 倍——這也是為什麼 Steam／PC 仍然值得台灣獨立團隊長期經營。</p>
+    <svg class="trend-svg" viewBox="0 0 640 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全球PC遊戲市場營收趨勢，2008年至2026年">
+      <line x1="20" y1="190" x2="620" y2="190" stroke="#D8D4C8" stroke-width="1"/>
+      <polyline points="40,154 120,127" fill="none" stroke="#A6303B" stroke-width="2.5"/>
+      <polyline points="120,127 280,60" fill="none" stroke="#A6303B" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+      <polyline points="280,60 360,53 440,63 520,42 600,34" fill="none" stroke="#A6303B" stroke-width="2.5"/>
+      <line x1="193" y1="183" x2="203" y2="197" stroke="#77808F" stroke-width="2"/>
+      <line x1="201" y1="183" x2="211" y2="197" stroke="#77808F" stroke-width="2"/>
+      <g fill="#A6303B">
+        <circle cx="40" cy="154" r="4"/><circle cx="120" cy="127" r="4"/>
+        <circle cx="280" cy="60" r="4"/><circle cx="360" cy="53" r="4"/>
+        <circle cx="440" cy="63" r="4"/><circle cx="520" cy="42" r="4"/><circle cx="600" cy="34" r="4"/>
+      </g>
+      <g font-family="Noto Serif TC, serif" font-weight="700" font-size="11" text-anchor="middle" fill="#1A2230">
+        <text x="40" y="144">107億</text><text x="120" y="117">186億</text>
+        <text x="280" y="50">382億</text><text x="360" y="43">404億</text>
+        <text x="440" y="53">373億</text><text x="520" y="32">436億</text><text x="600" y="24">459億</text>
+      </g>
+      <g font-family="Noto Sans TC, sans-serif" font-size="11" text-anchor="middle" fill="#77808F">
+        <text x="40" y="205">2008</text><text x="120" y="205">2011</text>
+        <text x="280" y="205">2022</text><text x="360" y="205">2023</text>
+        <text x="440" y="205">2024</text><text x="520" y="205">2025</text><text x="600" y="205">2026預估</text>
+      </g>
+      <text x="205" y="150" font-family="Noto Sans TC, sans-serif" font-size="10.5" font-style="italic" text-anchor="middle" fill="#77808F" transform="rotate(-8 205 150)">十年資料空窗期，方法論不一</text>
+    </svg>
+    <p class="table-caption"><i class="note-mark">註</i>單位為全球 PC 遊戲市場營收(美元，圖上以億為單位換算)。2008、2011 年為當時業界估算(DFC Intelligence 等)；2011-2022 年間不同研究機構對「PC 遊戲」定義落差大(是否計入瀏覽器遊戲、中國網咖收入等)，找不到方法論一致的逐年數字，故以虛線表示「方向已知、路徑從缺」；2022 年後採 Newzoo 數據，2024 年數字已依其 2025 年新方法論回溯調整，並非市場真的萎縮。</p>
+
     <h4 class="subhead">新作銷量榜</h4>
     <div class="table-scroll"><table>
       <tr><th>排名</th><th>遊戲</th><th>開發商</th><th>國家</th><th>單價</th><th>銷量</th></tr>
@@ -716,7 +746,7 @@
       <tr><td>1</td><td><a href="https://store.steampowered.com/app/2075800/STAR_WARS_Zero_Company/" target="_blank" rel="noopener">Star Wars Zero Company</a></td><td>Bit Reactor</td><td>美國</td><td>$50-60</td><td>約 65萬 套</td><td class="strong">$2,800萬</td></tr>
       <tr><td>2</td><td><a href="https://store.steampowered.com/app/2584270/Mortal_Shell_II/" target="_blank" rel="noopener">Mortal Shell II</a></td><td>Cold Symmetry</td><td>英國</td><td>$49.99</td><td>約 34萬 套*</td><td class="strong">$1,700萬</td></tr>
     </table></div>
-    <p class="table-caption">*** Mortal Shell II 套數為「營收 ÷ 單價」推算值，非官方公布數字。</p>
+    <p class="table-caption"><i class="note-mark">註</i>Mortal Shell II 套數為「營收 ÷ 單價」推算值，非官方公布數字。</p>
 
     <h4 class="subhead" style="margin-top:32px;">全站營收榜(含長青遊戲)</h4>
     <div class="table-scroll"><table>
@@ -725,8 +755,8 @@
       <tr><td>2</td><td><a href="https://store.steampowered.com/app/1172470/Apex_Legends/" target="_blank" rel="noopener">Apex Legends</a></td><td>Respawn Entertainment</td><td>美國</td><td>免費(內購制)</td><td class="strong">$8,900萬</td></tr>
       <tr><td>3</td><td>Dota 2</td><td>Valve</td><td>美國</td><td>免費(內購制)</td><td class="strong">$6,100萬</td></tr>
     </table></div>
-    <p class="table-caption">*** 說明：這三款都是免費遊戲，沒有「單價」與「銷售套數」這種買斷制指標，因此欄位換成「商業模式」；營收全部來自遊戲內購買(造型、通行證等)。</p>
-    <p class="table-caption">*** 觀察：「Friendslop」(好友同樂派對遊戲)持續稱霸新作銷量榜；lo-fi 恐怖遊戲話題度高但同時在線通常僅約 200 人，話題度不必然轉換成留存度——這點跟台灣恐怖遊戲的觀察互相呼應。</p>
+    <p class="table-caption"><i class="note-mark">註</i>說明：這三款都是免費遊戲，沒有「單價」與「銷售套數」這種買斷制指標，因此欄位換成「商業模式」；營收全部來自遊戲內購買(造型、通行證等)。</p>
+    <p class="table-caption"><i class="note-mark">註</i>觀察：「Friendslop」(好友同樂派對遊戲)持續稱霸新作銷量榜；lo-fi 恐怖遊戲話題度高但同時在線通常僅約 200 人，話題度不必然轉換成留存度——這點跟台灣恐怖遊戲的觀察互相呼應。</p>
 
     <h4 class="subhead" style="margin-top:32px;">全站熱度榜(含長青遊戲)</h4>
     <div class="table-scroll"><table>
@@ -741,11 +771,11 @@
       <tr><td>8</td><td>Rust</td><td>多人生存</td><td class="strong">81,521</td></tr>
       <tr><td>9</td><td>Path of Exile 2</td><td>動作 RPG(搶先體驗)</td><td class="strong">78,098</td></tr>
     </table></div>
-    <p class="table-caption">*** 數字為2026/9/8前後Steam官方即時同時在線人數快照(來源：SteamDB／Steam Dashboard)，會隨時間快速變動。</p>
+    <p class="table-caption"><i class="note-mark">註</i>數字為2026/9/8前後Steam官方即時同時在線人數快照(來源：SteamDB／Steam Dashboard)，會隨時間快速變動。</p>
     <p class="table-caption">
-      *** 指標性爆款對照：《黑神話：悟空》(遊戲科學，中國，2024/8 上市)全平台銷量超過 1,700 萬套、Steam 歷史同時在線峰值曾達 241 萬人，是近年規模最大的單機爆款之一——但它<b>不會出現在上面這張「整體熱度榜」裡</b>。原因是這張榜單看的是「同時在線人數」，而長期盤踞前段班的都是<b>多人連線／服務型遊戲</b>：玩家會天天回來玩 CS2、Dota 2；但像黑悟空這種單機敘事大作，玩家破關一次後多半就不再回頭，同時在線人數會隨時間快速下滑，即使銷量規模驚人也一樣。
+      <i class="note-mark">註</i>指標性爆款對照：《黑神話：悟空》(遊戲科學，中國，2024/8 上市)全平台銷量超過 1,700 萬套、Steam 歷史同時在線峰值曾達 241 萬人，是近年規模最大的單機爆款之一——但它<b>不會出現在上面這張「整體熱度榜」裡</b>。原因是這張榜單看的是「同時在線人數」，而長期盤踞前段班的都是<b>多人連線／服務型遊戲</b>：玩家會天天回來玩 CS2、Dota 2；但像黑悟空這種單機敘事大作，玩家破關一次後多半就不再回頭，同時在線人數會隨時間快速下滑，即使銷量規模驚人也一樣。
       <br><br>
-      *** 這也回應了一個常見的迷思：<b>「熱度排行榜」跟「歷史爆款」看的是兩件不同的事</b>——前者是「現在還有多少人在玩」，後者是「這款遊戲賣了多少、當初多轟動」。黑悟空在後者的分類裡毫無疑問是指標級案例，但在前者(即時熱度)裡自然會被 CS2、Dota 2 這類「天天有人上線」的遊戲擠下去。
+      <i class="note-mark">註</i>這也回應了一個常見的迷思：<b>「熱度排行榜」跟「歷史爆款」看的是兩件不同的事</b>——前者是「現在還有多少人在玩」，後者是「這款遊戲賣了多少、當初多轟動」。黑悟空在後者的分類裡毫無疑問是指標級案例，但在前者(即時熱度)裡自然會被 CS2、Dota 2 這類「天天有人上線」的遊戲擠下去。
     </p>
 
     <h4 class="subhead" style="margin-top:32px;">即將推出(依 Steam 社群追蹤人數)</h4>
@@ -757,7 +787,7 @@
       <tr><td>4</td><td><a href="https://store.steampowered.com/app/2638890/Onimusha_Way_of_the_Sword/" target="_blank" rel="noopener">Onimusha: Way of the Sword</a></td><td>Capcom</td><td>日本</td><td>已於 9/4 上市</td><td class="strong">59,476</td></tr>
       <tr><td>5</td><td><a href="https://store.steampowered.com/app/4126040/Aniimo/" target="_blank" rel="noopener">Aniimo</a></td><td>Pawprint Studio</td><td>資訊未公開</td><td>即將於 9/16 上市</td><td class="strong">58,774</td></tr>
     </table></div>
-    <p class="table-caption">*** 說明：Valve 不公開精確願望清單數字，此處以 Steam 社群中心追蹤人數作為公開可查的替代指標，非官方願望清單排名，數字會隨時間快速變動。</p>
+    <p class="table-caption"><i class="note-mark">註</i>說明：Valve 不公開精確願望清單數字，此處以 Steam 社群中心追蹤人數作為公開可查的替代指標，非官方願望清單排名，數字會隨時間快速變動。</p>
   </section>
 
   <!-- TAB 10 -->
@@ -841,7 +871,7 @@
 </div>
 
 <footer>
-  <p>台灣獨立遊戲專題研究 · 內容整理自公開報導與官方資料</p>
+  <p>台灣獨立遊戲專題研究，內容整理自公開報導與官方資料</p>
 </footer>
 
 <script>
