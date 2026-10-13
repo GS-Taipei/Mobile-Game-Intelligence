@@ -8,10 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  .ticker .rows{display:grid;gap:2px;margin-top:6px}
-.ticker .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
-.ticker .row .lab{font-size:13px;color:var(--ink-2);white-space:nowrap}
-.ticker .row strong{font-size:28px;margin:0}
+.ticker .rows{display:flex;flex-direction:column;gap:0;margin-top:4px}
+.ticker .rows .row{display:flex;flex-direction:row;align-items:baseline;gap:10px}
+.ticker .rows .lab{display:inline;font-size:13px;color:var(--ink-2);white-space:nowrap}
+.ticker .rows strong{display:inline;font-size:26px;line-height:1.25;margin:0}
   
   <style>
 :root{
