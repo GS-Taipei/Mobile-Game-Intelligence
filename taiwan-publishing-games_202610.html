@@ -7,7 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-<style>
+
+  .ticker .rows{display:grid;gap:2px;margin-top:6px}
+.ticker .row{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.ticker .row .lab{font-size:13px;color:var(--ink-2);white-space:nowrap}
+.ticker .row strong{font-size:28px;margin:0}
+  
+  <style>
 :root{
   --bg:#FCFBFA; --surface:#FFFFFF; --sunk:#F3F1EE; --ink:#1E1A17; --ink-2:#5A524C; --ink-3:#8C837C;
   --rule:#E4DFDA; --brand:#F0560C; --brand-soft:#FDE9DD; --agency:#F3A266; --pending:#B5ADA6; --vng:#2F6C8F; --rpd:#0E8A86; --old:#4A5560; --t1:#8F2D05; --t2:#F0560C; --t3:#F79A5E; --t4:#FBCBA8; --t5:#E5DFD9;
@@ -311,8 +317,8 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
 
   <h1 class="cover">代理時代結束了嗎！</h1>
   <p class="cover-sub">拿不到、也打不進：台港澳在地發行商的雙重困境</p>
-  <h2 class="hero-h">下載量少了 58%，每次下載營收翻了 7 倍</h2>
-  <p class="lede">台港澳手遊營收在 2021 年見頂後持平，下載量卻少了一半以上。市場已經飽和，營收靠老玩家持續付費撐住；新遊戲越來越難擠進去，擠得進去的大多是原廠自己發行的。</p>
+  <h2 class="hero-h">2021至2025年：下載少了21%、營收少了9%</h2>
+  <p class="lede">台港澳手遊營收在2021年見頂後持平，對比如今的下載量卻少了五分之一。市場已經飽和，營收靠老玩家持續付費撐住；新遊戲越來越難擠進去，擠得進去的大多是原廠自己發行的。</p>
 
   <div class="hero-chart">
     <div class="chart-head">
@@ -330,7 +336,13 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
       <button type="button" data-tk="rev" style="--c:var(--brand)" aria-pressed="false"><span class="k"><i class="mk solid"></i>2025 營收</span><strong>$23.6億</strong><span class="d">2021年高峰為$25.9億</span></button>
       <button type="button" data-tk="dl" style="--c:var(--ink-2)" aria-pressed="false"><span class="k"><i class="mk dash"></i>2025 下載</span><strong>▼58%</strong><span class="d">2015→2025，6.4 億次降至 2.7 億次</span></button>
       <button type="button" data-tk="rpd" style="--c:var(--rpd)" aria-pressed="false"><span class="k"><i class="mk solid"></i>2025 每次下載營收</span><strong>$8.7</strong><span class="d">2015年只有$1.2</span></button>
-      <button type="button" data-tk="ytd" style="--c:var(--ink)" aria-pressed="false"><span class="k"><i class="mk hollow"></i>2026 年 1–9 月</span><strong>▼16%</strong><span class="d">下載量年減；營收 $1.66B，年減 3.5%</span></button>
+<button type="button" data-tk="ytd" style="--c:var(--ink)" aria-pressed="false">
+  <span class="k"><i class="mk hollow"></i>2026 年 1–9 月</span>
+  <span class="rows">
+    <span class="row"><span class="lab">下載量年減</span><strong>▼16%</strong></span>
+    <span class="row"><span class="lab">營收年減</span><strong>▼3.5%</strong></span>
+  </span>
+</button>
     </div>
     <div class="canvas-box"><canvas id="heroChart" aria-label="台港澳手遊年度營收與下載量折線圖"></canvas></div>
     <p class="src">資料來源：SensorTower市場規模，Games/台港澳/雙平台，2014/1–2026/9。2026年為1–9月、未足年，圖中以空心點標示。</p>
