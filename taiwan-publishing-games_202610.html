@@ -360,14 +360,12 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
 
   <div class="grid2">
     <div class="panel">
-      <h3>新遊戲占各排名區間營收</h3>
-      <p class="sub">2024、2025、2026年比較</p>
+      <h3>2024-2026|新遊戲於各排名區間的營收比</h3>
       <div class="canvas-box sm"><canvas id="tierChart" aria-label="新遊戲營收占比長條圖"></canvas></div>
       <p class="take">兩年內，新遊戲在Top100的營收占比從24.9%掉到10%，減少了六成；放大到Top1000也從25.8%降到13.7%。新遊戲不只打不進頭部、在整體市場的份量也在快速縮水。</p>
     </div>
     <div class="panel">
-      <h3>2026 年各排名區間的新遊戲營收占比</h3>
-      <p class="sub">長條全長代表30%</p>
+      <h3>2026｜新遊戲於各排名區間的營收比</h3>
       <div class="sharebars" id="shareBars"></div>
       <p class="take">排名越前面，新遊戲占比越低。Top50只有4款是新遊戲、占6.8%，分別是《RO仙境傳說：世界之旅、心動小鎮、明日方舟：終末地、瑪奇 online》。Top100有15款新遊戲，占比也只有10%。</p>
     </div>
@@ -733,7 +731,7 @@ const modeColor=m=>({self:css('--brand'),agency:css('--agency'),vng:css('--vng')
 
 /* static HTML blocks */
 const shares=[['Top 50',6.8],['Top 100',10.0],['Top 200',11.5],['Top 500',13.4],['全部遊戲',13.8]];
-document.getElementById('shareBars').innerHTML=shares.map(([k,v])=>`<div class="sb"><span>${k}</span><div class="track" role="img" aria-label="${k} 新遊戲占 ${v}%"><div class="fill" style="width:${v/30*100}%"></div></div><em>${v.toFixed(1)}%</em></div>`).join('');
+document.getElementById('shareBars').innerHTML=shares.map(([k,v])=>`<div class="sb"><span>${k}</span><div class="track" role="img" aria-label="${k} 新遊戲占 ${v}%"><div class="fill" style="width:${v/100*100}%"></div></div><em>${v.toFixed(1)}%</em></div>`).join('');
 
 const TIERS=[{v:'--t5',l:'有營收',tt:'var(--ink)'},{v:'--t4',l:'≥ $100K',tt:'var(--ink)'},{v:'--t3',l:'≥ $1M',tt:'#fff'},{v:'--t2',l:'≥ $5M',tt:'#fff'},{v:'--t1',l:'≥ $10M',tt:'#fff'}];
 const fn=[[2093,'有產生營收'],[202,'營收 ≥ $100K'],[49,'營收 ≥ $1M'],[8,'營收 ≥ $5M'],[2,'營收 ≥ $10M']];
