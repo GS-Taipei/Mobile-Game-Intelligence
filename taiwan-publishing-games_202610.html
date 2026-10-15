@@ -321,6 +321,72 @@ table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
 .moves sup{font-size:10px;color:var(--brand);font-weight:700}
 .moves .refs{margin:14px 0 0;padding-top:10px;border-top:1px dashed var(--rule);font-size:12px;line-height:1.7;color:var(--ink-3)}
 .moves .refs sup{color:var(--ink-3)}
+
+/* ===== 動態效果 ===== */
+.nav{position:sticky}
+.prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;pointer-events:none}
+.prog i{display:block;height:100%;width:0;background:var(--brand);border-radius:0 3px 3px 0;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.count{display:inline-flex;align-items:center;gap:8px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--brand);position:relative;display:inline-block}
+.live-dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--brand);animation:ping 1.8s cubic-bezier(0,0,.2,1) infinite}
+@keyframes ping{75%,100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:no-preference){
+  .page.active .panel,.page.active .hero-chart,.page.active .key,.page.active .notes>div,.page.active .split,.page.active .verdict,.page.active .trio>div,.page.active .ticker button,.page.active .moves>article{animation:rise .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*70ms + 80ms)}
+  @keyframes rise{from{opacity:0;transform:translateY(22px) scale(.98)}to{opacity:1;transform:none}}
+  .page.active .ch-no{animation:popin .8s cubic-bezier(.34,1.56,.64,1) both;transform-origin:left bottom}
+  @keyframes popin{0%{opacity:0;transform:scale(.3) rotate(-12deg)}100%{opacity:1;transform:none}}
+  .page.active .ch h2{animation:rise .7s cubic-bezier(.2,.8,.2,1) .12s both}
+  .page.active .cover span{display:inline-block;animation:drop .7s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--c)*70ms)}
+  @keyframes drop{0%{opacity:0;transform:translateY(-40px) rotate(-8deg)}100%{opacity:1;transform:none}}
+  .page.active .cover-sub{animation:rise .7s cubic-bezier(.2,.8,.2,1) .7s both}
+  .page.active .sb .fill,.page.active .og .b,.page.active .dr .fill{transform-origin:left;animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--r,0)*110ms + 350ms)}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .page.active .waffle i{animation:blip .45s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--d,0)*14ms + 300ms)}
+  @keyframes blip{0%{transform:scale(0) rotate(45deg)}100%{transform:none}}
+  .page.active .funnel .fr{animation:pour .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--r,0)*160ms + 250ms)}
+  @keyframes pour{from{opacity:0;transform:translateY(-18px) scaleY(.6)}to{opacity:1;transform:none}}
+  .page.active table.tiered tbody tr,.page.active table.duel tbody tr,.page.active table.cmp tbody tr{animation:slidein .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--r,0)*60ms + 300ms)}
+  @keyframes slidein{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:none}}
+  .key{transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .15s,box-shadow .25s}
+  .key:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 10px 24px -12px color-mix(in srgb,var(--brand) 55%,transparent)}
+  .ticker button{transition:background .15s,box-shadow .15s,transform .25s cubic-bezier(.34,1.56,.64,1)}
+  .ticker button:hover{transform:translateY(-3px)}
+  .ticker button:active{transform:scale(.97)}
+  .waffle i{transition:transform .2s}
+  .waffle i:hover{transform:scale(1.35);position:relative;z-index:1}
+  .pager a{transition:transform .25s cubic-bezier(.34,1.56,.64,1),border-color .15s}
+  .pager a:hover{transform:translateY(-3px)}
+  .pager .next:hover strong::after{content:" →";}
+  .pager .prev:hover strong::before{content:"← ";}
+  .tabs a b{display:inline-block;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+  .tabs a:hover b{transform:translateY(-3px) rotate(-8deg)}
+}
+
+/* ===== 跑來跑去的小幫手 ===== */
+.runner{position:absolute;bottom:2px;left:0;z-index:11;width:24px;height:22px;padding:0;border:0;background:none;cursor:pointer;transition:left .75s cubic-bezier(.45,.05,.35,1)}
+.runner svg{display:block;transform-origin:50% 100%}
+.runner.flip svg{transform:scaleX(-1)}
+.runner .lb{opacity:0}
+.coin{position:absolute;bottom:26px;left:0;z-index:11;display:flex;align-items:center;gap:2px;font-family:var(--num);font-weight:700;font-size:12px;color:#C98F00;opacity:0;pointer-events:none;transform:translateX(6px)}
+@media (prefers-reduced-motion:no-preference){
+  .runner svg{animation:idle 2.6s ease-in-out infinite}
+  .runner.run svg{animation:bounce .25s steps(2) infinite}
+  .runner.flip.run svg{animation:bounceflip .25s steps(2) infinite}
+  .runner.run .la{animation:legA .25s steps(1) infinite}
+  .runner.run .lb{animation:legB .25s steps(1) infinite}
+  .runner.jump svg{animation:jump .55s cubic-bezier(.3,1.6,.5,1)}
+  .runner.flip.jump svg{animation:jumpflip .55s cubic-bezier(.3,1.6,.5,1)}
+  .coin.pop{animation:coin .9s ease-out}
+}
+@keyframes idle{0%,70%,100%{transform:none}80%{transform:translateY(-4px) scaleY(1.05)}90%{transform:scaleY(.9)}}
+@keyframes bounce{0%{transform:translateY(0)}100%{transform:translateY(-2px)}}
+@keyframes bounceflip{0%{transform:scaleX(-1) translateY(0)}100%{transform:scaleX(-1) translateY(-2px)}}
+@keyframes legA{0%{opacity:1}50%{opacity:0}}
+@keyframes legB{0%{opacity:0}50%{opacity:1}}
+@keyframes jump{0%{transform:none}40%{transform:translateY(-16px) rotate(-12deg)}70%{transform:translateY(0) scaleY(.85)}100%{transform:none}}
+@keyframes jumpflip{0%{transform:scaleX(-1)}40%{transform:scaleX(-1) translateY(-16px) rotate(-12deg)}70%{transform:scaleX(-1) scaleY(.85)}100%{transform:scaleX(-1)}}
+@keyframes coin{0%{opacity:0;transform:translate(6px,6px)}25%{opacity:1;transform:translate(6px,-6px)}70%{opacity:1;transform:translate(6px,-12px)}100%{opacity:0;transform:translate(6px,-18px)}}
+@media (max-width:640px){.runner{bottom:1px}}
 </style>
 </head>
 <body>
@@ -337,14 +403,17 @@ table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
       <li><a href="#p5" data-p="5"><b>5</b><span>原廠布局</span></a></li>
       <li><a href="#p6" data-p="6"><b>6</b><span>結論與出路</span></a></li>
     </ol>
-    <span class="count" id="count" aria-live="polite"></span>
+    <span class="count"><i class="live-dot" aria-hidden="true"></i><span id="count" aria-live="polite"></span></span>
   </div>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+  <button type="button" class="runner" id="runner" aria-label="小幫手（點我跳一下）"><svg viewBox="0 0 12 11" width="24" height="22" shape-rendering="crispEdges" aria-hidden="true"><g class="bd"><rect x="4" y="0" width="1" height="1" fill="var(--brand)"/><rect x="5" y="0" width="1" height="1" fill="var(--brand)"/><rect x="6" y="0" width="1" height="1" fill="var(--brand)"/><rect x="7" y="0" width="1" height="1" fill="var(--brand)"/><rect x="3" y="1" width="1" height="1" fill="var(--brand)"/><rect x="4" y="1" width="1" height="1" fill="var(--brand)"/><rect x="5" y="1" width="1" height="1" fill="var(--brand)"/><rect x="6" y="1" width="1" height="1" fill="var(--brand)"/><rect x="7" y="1" width="1" height="1" fill="var(--brand)"/><rect x="8" y="1" width="1" height="1" fill="var(--brand)"/><rect x="2" y="2" width="1" height="1" fill="var(--brand)"/><rect x="3" y="2" width="1" height="1" fill="var(--brand)"/><rect x="4" y="2" width="1" height="1" fill="var(--brand)"/><rect x="5" y="2" width="1" height="1" fill="var(--brand)"/><rect x="6" y="2" width="1" height="1" fill="var(--brand)"/><rect x="7" y="2" width="1" height="1" fill="var(--brand)"/><rect x="8" y="2" width="1" height="1" fill="var(--brand)"/><rect x="9" y="2" width="1" height="1" fill="var(--brand)"/><rect x="1" y="3" width="1" height="1" fill="var(--brand)"/><rect x="2" y="3" width="1" height="1" fill="var(--brand)"/><rect x="3" y="3" width="1" height="1" fill="#fff"/><rect x="4" y="3" width="1" height="1" fill="#fff"/><rect x="5" y="3" width="1" height="1" fill="var(--brand)"/><rect x="6" y="3" width="1" height="1" fill="var(--brand)"/><rect x="7" y="3" width="1" height="1" fill="#fff"/><rect x="8" y="3" width="1" height="1" fill="#fff"/><rect x="9" y="3" width="1" height="1" fill="var(--brand)"/><rect x="10" y="3" width="1" height="1" fill="var(--brand)"/><rect x="1" y="4" width="1" height="1" fill="var(--brand)"/><rect x="2" y="4" width="1" height="1" fill="var(--brand)"/><rect x="3" y="4" width="1" height="1" fill="#fff"/><rect x="4" y="4" width="1" height="1" fill="var(--ink)"/><rect x="5" y="4" width="1" height="1" fill="var(--brand)"/><rect x="6" y="4" width="1" height="1" fill="var(--brand)"/><rect x="7" y="4" width="1" height="1" fill="#fff"/><rect x="8" y="4" width="1" height="1" fill="var(--ink)"/><rect x="9" y="4" width="1" height="1" fill="var(--brand)"/><rect x="10" y="4" width="1" height="1" fill="var(--brand)"/><rect x="1" y="5" width="1" height="1" fill="var(--brand)"/><rect x="2" y="5" width="1" height="1" fill="var(--brand)"/><rect x="3" y="5" width="1" height="1" fill="var(--brand)"/><rect x="4" y="5" width="1" height="1" fill="var(--brand)"/><rect x="5" y="5" width="1" height="1" fill="var(--brand)"/><rect x="6" y="5" width="1" height="1" fill="var(--brand)"/><rect x="7" y="5" width="1" height="1" fill="var(--brand)"/><rect x="8" y="5" width="1" height="1" fill="var(--brand)"/><rect x="9" y="5" width="1" height="1" fill="var(--brand)"/><rect x="10" y="5" width="1" height="1" fill="var(--brand)"/><rect x="1" y="6" width="1" height="1" fill="var(--brand)"/><rect x="2" y="6" width="1" height="1" fill="var(--brand)"/><rect x="3" y="6" width="1" height="1" fill="var(--t1)"/><rect x="4" y="6" width="1" height="1" fill="var(--t1)"/><rect x="5" y="6" width="1" height="1" fill="var(--t1)"/><rect x="6" y="6" width="1" height="1" fill="var(--t1)"/><rect x="7" y="6" width="1" height="1" fill="var(--t1)"/><rect x="8" y="6" width="1" height="1" fill="var(--t1)"/><rect x="9" y="6" width="1" height="1" fill="var(--brand)"/><rect x="10" y="6" width="1" height="1" fill="var(--brand)"/><rect x="2" y="7" width="1" height="1" fill="var(--brand)"/><rect x="3" y="7" width="1" height="1" fill="var(--brand)"/><rect x="4" y="7" width="1" height="1" fill="var(--brand)"/><rect x="5" y="7" width="1" height="1" fill="var(--brand)"/><rect x="6" y="7" width="1" height="1" fill="var(--brand)"/><rect x="7" y="7" width="1" height="1" fill="var(--brand)"/><rect x="8" y="7" width="1" height="1" fill="var(--brand)"/><rect x="9" y="7" width="1" height="1" fill="var(--brand)"/><rect x="3" y="8" width="1" height="1" fill="var(--brand)"/><rect x="4" y="8" width="1" height="1" fill="var(--brand)"/><rect x="5" y="8" width="1" height="1" fill="var(--brand)"/><rect x="6" y="8" width="1" height="1" fill="var(--brand)"/><rect x="7" y="8" width="1" height="1" fill="var(--brand)"/><rect x="8" y="8" width="1" height="1" fill="var(--brand)"/></g><g class="la"><rect x="3" y="9" width="1" height="1" fill="var(--ink)"/><rect x="4" y="9" width="1" height="1" fill="var(--ink)"/><rect x="7" y="9" width="1" height="1" fill="var(--ink)"/><rect x="8" y="9" width="1" height="1" fill="var(--ink)"/><rect x="2" y="10" width="1" height="1" fill="var(--ink)"/><rect x="3" y="10" width="1" height="1" fill="var(--ink)"/><rect x="8" y="10" width="1" height="1" fill="var(--ink)"/><rect x="9" y="10" width="1" height="1" fill="var(--ink)"/></g><g class="lb"><rect x="4" y="9" width="1" height="1" fill="var(--ink)"/><rect x="5" y="9" width="1" height="1" fill="var(--ink)"/><rect x="7" y="9" width="1" height="1" fill="var(--ink)"/><rect x="8" y="9" width="1" height="1" fill="var(--ink)"/><rect x="4" y="10" width="1" height="1" fill="var(--ink)"/><rect x="5" y="10" width="1" height="1" fill="var(--ink)"/><rect x="7" y="10" width="1" height="1" fill="var(--ink)"/><rect x="8" y="10" width="1" height="1" fill="var(--ink)"/></g></svg></button>
+  <span class="coin" id="coin" aria-hidden="true"><svg viewBox="0 0 6 6" width="12" height="12" shape-rendering="crispEdges" aria-hidden="true"><rect x="1" y="0" width="4" height="6" fill="#F5B800"/><rect x="0" y="1" width="6" height="4" fill="#F5B800"/><rect x="2" y="1" width="2" height="4" fill="#FFE27A"/></svg><b>+1</b></span>
 </nav>
 
 <main>
 <section class="page hero wrap" id="p0" data-title="總覽" aria-label="總覽">
 
-  <h1 class="cover">代理時代結束了嗎！</h1>
+  <h1 class="cover" aria-label="代理時代結束了嗎！"><span aria-hidden="true" style="--c:0">代</span><span aria-hidden="true" style="--c:1">理</span><span aria-hidden="true" style="--c:2">時</span><span aria-hidden="true" style="--c:3">代</span><span aria-hidden="true" style="--c:4">結</span><span aria-hidden="true" style="--c:5">束</span><span aria-hidden="true" style="--c:6">了</span><span aria-hidden="true" style="--c:7">嗎</span><span aria-hidden="true" style="--c:8">！</span></h1>
   <p class="cover-sub">拿不到、也打不進：台港澳在地發行商的雙重困境</p>
   <h2 class="hero-h">2021至2025年：下載少了21%、營收少了9%</h2>
   <p class="lede">台港澳手遊營收在2021年見頂後持平，對比如今的下載量卻少了五分之一。市場已經飽和，營收靠老玩家持續付費撐住；新遊戲越來越難擠進去，擠得進去的大多是原廠自己發行的。</p>
@@ -793,6 +862,8 @@ document.getElementById('duel').innerHTML=duel.map(([y,a,b])=>`<tr><td class="n"
 
 document.getElementById('waffle').innerHTML=Array.from({length:100},(_,i)=>i<29?'<i style="background:var(--old)"></i>':i<72?'<i style="background:var(--old);opacity:.35"></i>':i<81?'<i style="background:var(--pending)"></i>':'<i style="background:var(--brand)"></i>').join('');
 
+document.querySelectorAll('#waffle i').forEach((el,k)=>el.style.setProperty('--d',k));
+
 /* origin aggregation */
 function origin(){
   const groups=[
@@ -845,10 +916,49 @@ function show(i,focus){
   document.title=`${pages[i].dataset.title}｜代理時代結束了｜台港澳在地發行商的雙重困境`;
   window.scrollTo(0,0);
   try{ensure(i)}catch(e){}
+  const pr=document.getElementById('prog');if(pr)pr.style.width=((i+1)/pages.length*100)+'%';
+  try{moveRunner((i+1)/pages.length)}catch(e){}
+  try{liven(pages[i],i)}catch(e){}
   if(focus){const h=pages[i].querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}}
 }
+/* ---- 動態效果 ---- */
+const MOTION=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cuOrig=new WeakMap();
+function countUp(el,delay){
+  const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const nodes=[];let n;while(n=w.nextNode())if(/\d/.test(n.nodeValue))nodes.push(n);
+  nodes.forEach(t=>{
+    if(!cuOrig.has(t))cuOrig.set(t,t.nodeValue);
+    const orig=cuOrig.get(t);const toks=[];orig.replace(/\d[\d,]*(?:\.\d+)?/g,(m,off)=>{toks.push({m,off,v:parseFloat(m.replace(/,/g,'')),dec:(m.split('.')[1]||'').length,comma:m.includes(',')})});
+    if(!toks.length)return;
+    const fmt=(tk,x)=>{let s=x.toFixed(tk.dec);if(tk.comma){const [a,b]=s.split('.');s=a.replace(/\B(?=(\d{3})+(?!\d))/g,',')+(b?'.'+b:'')}return s};
+    const render=k=>{let out='',last=0;toks.forEach(tk=>{out+=orig.slice(last,tk.off)+fmt(tk,tk.v*k);last=tk.off+tk.m.length});t.nodeValue=out+orig.slice(last)};
+    render(0);const dur=1000,t0=performance.now()+delay;
+    const step=now=>{const p=Math.min(1,Math.max(0,(now-t0)/dur));render(1-Math.pow(1-p,3));if(p<1)requestAnimationFrame(step);else t.nodeValue=orig};
+    requestAnimationFrame(step);
+  });
+}
+function liven(pg,i){
+  if(!MOTION)return;
+  pg.querySelectorAll('.panel,.hero-chart,.key,.notes>div,.split,.verdict,.trio>div,.ticker button,.moves>article').forEach((el,k)=>el.style.setProperty('--i',Math.min(k,12)));
+  pg.querySelectorAll('.sharebars .sb,.origin .og,.dist .dr,.funnel .fr,table.tiered tbody tr,table.duel tbody tr,table.cmp tbody tr').forEach(el=>{const sib=[...el.parentNode.children];el.style.setProperty('--r',sib.indexOf(el))});
+  pg.querySelectorAll('.ticker strong,.trio strong,.key strong,.og .v,.sb em,.dr em,.fseg').forEach((el,k)=>countUp(el,250+k*40));
+  (PAGE_CHARTS[i]||[]).forEach(k=>{const ch=charts[k];if(ch){ch.reset();ch.update()}});
+}
+/* ---- 跑來跑去的小幫手 ---- */
+let rPos=null,rTimer=null;
+function moveRunner(f){
+  const r=document.getElementById('runner'),cn=document.getElementById('coin');if(!r)return;
+  const x=`calc(${(f*100).toFixed(2)}% - 26px)`;
+  if(rPos===null||!MOTION){r.style.left=x;cn.style.left=x;rPos=f;return}
+  r.classList.toggle('flip',f<rPos);r.classList.add('run');rPos=f;
+  r.style.left=x;cn.style.left=x;
+  clearTimeout(rTimer);rTimer=setTimeout(()=>{r.classList.remove('run');cn.classList.remove('pop');void cn.offsetWidth;cn.classList.add('pop')},750);
+}
+document.getElementById('runner').addEventListener('click',e=>{const r=e.currentTarget;r.classList.remove('jump');void r.offsetWidth;r.classList.add('jump')});
 const fromHash=()=>{const m=location.hash.match(/^#p(\d)$/);return m?+m[1]:0};
 window.addEventListener('hashchange',()=>show(fromHash(),true));
+window.addEventListener('load',()=>{if(location.hash)setTimeout(()=>window.scrollTo(0,0),0)});
+if('scrollRestoration' in history)history.scrollRestoration='manual';
 document.addEventListener('keydown',e=>{
   if(e.target.closest('input,textarea,select')||e.altKey||e.metaKey||e.ctrlKey)return;
   if(e.key==='ArrowRight'&&cur<pages.length-1)location.hash='#p'+(cur+1);
@@ -863,6 +973,12 @@ const modeData={self:[314,212,121],agency:[67,47,28],other:[75,35,10]};
 function base(){
   const ink2=css('--ink-2'),grid=css('--grid');
   Chart.defaults.font.family=css('--text');
+  if(MOTION){
+    Chart.defaults.animation.duration=1100;Chart.defaults.animation.easing='easeOutQuart';
+    Chart.defaults.animation.delay=x=>(x.type==='data'&&x.mode==='default')?x.dataIndex*90+x.datasetIndex*150:0;
+    Chart.defaults.datasets.line.animations={y:{from:x=>(x.type==='data'&&x.chart.chartArea)?x.chart.chartArea.bottom:undefined}};
+    Chart.defaults.datasets.scatter.animations={radius:{from:0,duration:700,easing:'easeOutBack'}};
+  }else{Chart.defaults.animation=false}
   Chart.defaults.color=ink2;
   return {ink:css('--ink'),ink2,ink3:css('--ink-3'),grid,brand:css('--brand'),rpd:css('--rpd'),old:css('--old'),agency:css('--agency'),pending:css('--pending'),vng:css('--vng'),surface:css('--surface')};
 }
@@ -875,7 +991,7 @@ function heroCfg(c){
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const n=years.length;
   const seg={borderDash:x=>x.p1DataIndex===n-1?[4,4]:undefined};
-  const common={responsive:true,maintainAspectRatio:false,animation:reduced?false:{duration:500},interaction:{mode:'index',intersect:false},layout:{padding:{top:8}}};
+  const common={responsive:true,maintainAspectRatio:false,animation:reduced?false:{duration:1200,easing:'easeOutQuart'},interaction:{mode:'index',intersect:false},layout:{padding:{top:8}}};
   if(heroMode==='rpd'){
     return {type:'line',data:{labels:years,datasets:[{label:'每次下載營收',data:rpd,borderColor:c.rpd,backgroundColor:c.rpd,borderWidth:3,tension:.25,segment:seg,...pts(c.rpd,c,n)}]},
       options:{...common,plugins:{legend:{display:false},tooltip:{...tip(c),callbacks:{label:x=>` 每次下載營收 $${x.parsed.y.toFixed(2)}`}}},
