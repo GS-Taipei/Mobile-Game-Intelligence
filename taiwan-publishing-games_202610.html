@@ -314,6 +314,13 @@ table.tiered tbody tr{background:color-mix(in srgb,var(--tc) 18%,transparent)}
 table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
 .og .b{flex:none}
 .og .v small{display:block;margin-left:0}
+
+/* 第五條出路 */
+.moves .wide-move{grid-column:1/-1}
+.moves .ext{display:inline-block;font-size:11px;font-weight:700;color:var(--ink-2);background:var(--sunk);border:1px solid var(--rule);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:3px}
+.moves sup{font-size:10px;color:var(--brand);font-weight:700}
+.moves .refs{margin:14px 0 0;padding-top:10px;border-top:1px dashed var(--rule);font-size:12px;line-height:1.7;color:var(--ink-3)}
+.moves .refs sup{color:var(--ink-3)}
 </style>
 </head>
 <body>
@@ -618,8 +625,8 @@ table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
     </div>
   </div>
 
-  <h3 class="sec">四條出路</h3>
-  <p class="lead-in">以下依研究數據推導，是在地發行商可以考慮的方向，而不是互斥的選擇。多數公司可能會組合其中兩到三條。</p>
+  <h3 class="sec">五條出路</h3>
+  <p class="lead-in">前四條依研究數據推導，第五條引用外部市場報告。這些是在地發行商可以考慮的方向，而不是互斥的選擇，多數公司可能會組合其中兩到三條。</p>
   <div class="moves">
     <article class="panel">
       <h3>從代理商轉為原廠的在地服務夥伴</h3>
@@ -653,10 +660,19 @@ table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
         <dt>關鍵指標</dt><dd>自有或共同開發產品數、自有產品營收占比</dd>
       </dl>
     </article>
+    <article class="panel wide-move">
+      <h3>從手機走向跨平台 <span class="ext">外部數據</span></h3>
+      <dl>
+        <dt>為什麼</dt><dd>手機玩家的付費意願在下降：70.1% 的手遊玩家只想玩免費遊戲，比前一年多了近一成；每月付費 1,000 元以上的手遊玩家減少 8.2%<sup>1</sup>。同時，常玩主機遊戲的玩家比例增加 7.2 個百分點，是所有平台中成長最多的<sup>1</sup>。台灣近半的手遊玩家也會在 PC 上玩，跨裝置比例高於日本，PC 玩家的消費力普遍較高<sup>2</sup>。原廠的頭部新作也越來越多是手機、PC 同步推出，例如《明日方舟：終末地》、《異環》、《燕雲十六聲》。</dd>
+        <dt>怎麼做</dt><dd>選品時優先考慮有 PC 版的手遊；建立 PC 端的營運能力，包括官方啟動器、官網儲值與 Steam 上架。PC 平台的通路分成約 0%–30%，官網儲值甚至不需分成<sup>3</sup>，可以同時改善利潤結構。主機則可從協助在地化、代理主機遊戲開始累積經驗。</dd>
+        <dt>關鍵指標</dt><dd>跨平台產品營收占比、PC 端玩家占比、官網儲值占比</dd>
+      </dl>
+      <p class="refs">資料來源：<sup>1</sup> 資策會 MIC 數位遊戲消費者調查（2025 年 11 月），數據為玩家常玩與付費比例，非營收。<sup>2</sup> Google 2025 遊戲產業交流會（Think with Google）。<sup>3</sup> 中國遊戲市場全終端分析（依《2025 年中國遊戲產業報告》）。全球趨勢參考：Newzoo 指出 2025 年 PC 遊戲收入年增 12%，為有紀錄以來最大增幅。</p>
+    </article>
   </div>
 
   <div class="panel" style="margin-top:24px">
-    <h3>四條出路比較</h3>
+    <h3>五條出路比較</h3>
     <p class="sub">初步評估，實際情況依公司規模與既有能力而定</p>
     <div class="tscroll"><table class="cmp">
       <thead><tr><th>出路</th><th>主要依賴的能力</th><th>資金投入</th><th>回收速度</th><th>風險</th></tr></thead>
@@ -665,9 +681,10 @@ table.tiered tbody tr td{border-bottom:2px solid var(--surface)}
         <tr><td>承接長線營運</td><td>營運方法論、數據分析</td><td><span class="lv2">中</span></td><td><span class="lv2">中</span></td><td><span class="lv2">中</span></td></tr>
         <tr><td>中段與利基選品</td><td>選品判斷、成本控制</td><td><span class="lv2">中</span></td><td><span class="lv2">中</span></td><td><span class="lv2">中</span></td></tr>
         <tr><td>往上游走</td><td>研發管理、投資評估</td><td><span class="lv3">高</span></td><td><span class="lv1">慢</span></td><td><span class="lv3">高</span></td></tr>
+        <tr><td>走向跨平台</td><td>PC 營運、官網金流、主機在地化</td><td><span class="lv2">中</span></td><td><span class="lv1">慢</span></td><td><span class="lv2">中</span></td></tr>
       </tbody>
     </table></div>
-    <p class="take">四條路的共同點，是把競爭力從「手上有什麼產品」轉到「能把產品經營得多好」。在原廠自發成為主流的市場裡，在地發行商的價值不再是取得產品，而是讓產品在台港澳活得更久、賺得更多。</p>
+    <p class="take">五條路的共同點，是把競爭力從「手上有什麼產品」轉到「能把產品經營得多好」。在原廠自發成為主流的市場裡，在地發行商的價值不再是取得產品，而是讓產品在台港澳活得更久、賺得更多。</p>
   </div>
 
 
