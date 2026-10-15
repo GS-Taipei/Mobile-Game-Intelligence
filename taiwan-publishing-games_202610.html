@@ -293,6 +293,15 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
 .ticker .rows .row{display:flex;flex-direction:row;align-items:baseline;gap:10px}
 .ticker .rows .lab{display:inline;font-size:13px;color:var(--ink-2);white-space:nowrap}
 .ticker .rows strong{display:inline;font-size:26px;line-height:1.25;margin:0}
+
+/* 老遊戲 MAU 分布 */
+.dist{margin-top:20px}
+.dist-t{font-size:13px;font-weight:700;color:var(--ink-2);margin:0 0 10px}
+.dr{display:grid;grid-template-columns:110px 1fr 56px;align-items:center;gap:12px;font-size:14px;margin-bottom:8px}
+.dr .track{height:18px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.dr .fill{height:100%;border-radius:4px 0 0 4px}
+.dr em{font-style:normal;font-family:var(--num);font-weight:600;font-size:17px;text-align:right}
+@media (max-width:520px){.dr{grid-template-columns:92px 1fr 48px}}
 </style>
 </head>
 <body>
@@ -340,21 +349,21 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
 <button type="button" data-tk="ytd" style="--c:var(--ink)" aria-pressed="false">
   <span class="k"><i class="mk hollow"></i>2026年1–9月</span>
   <span class="rows">
-    <span class="row"><span class="lab">下載較去年同期年減</span><strong>▼16%</strong></span>
-    <span class="row"><span class="lab">營收較去年同期年減</span><strong>▼3.5%</strong></span>
+    <span class="row"><span class="lab">下載較去年同期年減</span><strong>▼15.5%</strong></span>
+    <span class="row"><span class="lab">營收較去年同期年減</span><strong>▼3.7%</strong></span>
   </span>
 </button>
     </div>
     <div class="canvas-box"><canvas id="heroChart" aria-label="台港澳手遊年度營收與下載量折線圖"></canvas></div>
-    <p class="src">資料來源：SensorTower市場規模，Games/台港澳/雙平台，2014/1–2026/9。2026年為1–9月、未足年，圖中以空心點標示。</p>
+    <p class="src">資料來源：SensorTower市場規模，Games/台港澳/雙平台，2014/1–2026/9。2026年為1–9月、未足年，圖中以空心點標示。本頁為全市場口徑（含博奕類，歷史數據無法拆分），其餘分頁皆已排除博奕類。</p>
   </div>
 </section>
 
 <section class="page ch wrap" id="p1" data-title="市場飽和">
   <p class="ch-no">1</p>
-  <h2>2026年營收Top100裡：85款是老遊戲，拿走90%營收</h2>
+  <h2>2026年營收Top100裡：81款是老遊戲，拿走87%營收</h2>
   <div class="prose">
-    <p>台港澳手遊營收16.6億美元(2026-Q1至Q3），比去年同期少3.5%。少掉的營收沒有被新遊戲補上，錢仍然集中在上線多年的老遊戲。</p>
+    <p>排除博奕類後，台港澳手遊營收14.8億美元（2026年1–9月），比去年同期少3.6%。少掉的營收沒有被新遊戲補上，錢仍然集中在上線多年的老遊戲。</p>
     <p class="muted">每次下載帶來的營收十年間翻了7倍($1.2->$8.7)，代表市場越來越靠老玩家持續付費，這就是市場飽和：新玩家進來得少，競爭重點從「拿到下一款新產品」變成「把既有玩家留多久、經營多深」。</p>
   </div>
 
@@ -362,12 +371,12 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
     <div class="panel">
       <h3>2024-2026｜新遊戲於各排名區間的營收比</h3>
       <div class="canvas-box sm"><canvas id="tierChart" aria-label="新遊戲營收占比長條圖"></canvas></div>
-      <p class="take">兩年內，新遊戲在Top100的營收占比從24.9%掉到10%，減少了六成；放大到Top1000也從25.8%降到13.7%。新遊戲不只打不進頭部、在整體市場的份量也在快速縮水。</p>
+      <p class="take">兩年內，新遊戲在Top100的營收占比從30.6%掉到13.0%，減少將近六成；放大到Top1000也從29.7%降到16.2%。新遊戲不只打不進頭部、在整體市場的份量也在快速縮水。</p>
     </div>
     <div class="panel">
       <h3>2026YTD｜新遊戲於各排名區間的營收比</h3>
       <div class="sharebars" id="shareBars"></div>
-      <p class="take">排名越前面，新遊戲占比越低。Top50只有4款是新遊戲、占6.8%，分別是《RO仙境傳說：世界之旅》、《心動小鎮》、《明日方舟：終末地》、《瑪奇 online》。Top100有15款新遊戲，占比也只有10%。</p>
+      <p class="take">排名越前面，新遊戲占比越低。Top50只有6款是新遊戲、占9.7%，分別是《RO仙境傳說：世界之旅》、《心動小鎮》、《瑪奇 online》、《明日方舟：終末地》、《Co-op Tower Defense》、《三國：謀定天下》。Top100有19款新遊戲，占比也只有13.0%。</p>
     </div>
   </div>
 
@@ -375,62 +384,82 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
 
 <section class="page ch wrap" id="p2" data-title="老遊戲">
   <p class="ch-no">2</p>
-  <h2>老遊戲占Top100營收從75%升到90%，但它們自己也在衰退</h2>
+  <h2>老遊戲占Top100營收從69%升到87%，但它們自己也在衰退</h2>
   <div class="prose">
-    <p>老遊戲在各排名區間的營收占比連續兩年上升，看起來像是越來越強勢。但把營收本身攤開來看，Top100的老遊戲整體營收比前期少了1.8%，85款裡有38款在衰退。占比變高，是因為新遊戲補不上，而不是老遊戲在成長。</p>
+    <p>老遊戲在各排名區間的營收占比連續兩年上升，看起來像是越來越強勢。但把營收本身攤開來看，Top100的老遊戲中、去年同期已上線的72款，營收比去年同期少了7.7%，有43款在衰退。占比變高，是因為新遊戲補不上，而不是老遊戲在成長。</p>
   </div>
 
   <div class="grid2">
     <div class="panel">
       <h3>2024-2026YTD｜老遊戲占各排名區間營收</h3>
       <div class="canvas-box sm"><canvas id="oldChart" aria-label="老遊戲營收占比折線圖"></canvas></div>
-      <p class="take">三個區間的老遊戲占比都在兩年內上升12-15個百分點，Top100已經有九成營收來自老遊戲。越往頭部，老遊戲的掌握度越高。</p>
+      <p class="take">三個區間的老遊戲占比都在兩年內上升13-18個百分點，Top100已經有將近九成營收來自老遊戲。越往頭部，老遊戲的掌握度越高。</p>
     </div>
     <div class="panel">
       <h3>Top 100 的 100 個位置</h3>
       <p class="sub">2026YTD，每格代表 1 款遊戲</p>
-      <div class="waffle" id="waffle" role="img" aria-label="Top 100 中 47 款老遊戲未衰退、38 款老遊戲衰退、15 款新遊戲"></div>
+      <div class="waffle" id="waffle" role="img" aria-label="Top 100 中 29 款老遊戲成長、43 款老遊戲衰退、9 款去年10月後上線的老遊戲、19 款新遊戲"></div>
       <div class="wlegend">
-        <span><i style="background:var(--old)"></i>老遊戲+營收未衰退　47 款</span>
-        <span><i style="background:var(--old);opacity:.35"></i>老遊戲+營收衰退　38 款</span>
-        <span><i style="background:var(--brand)"></i>新遊戲　15 款</span>
+        <span><i style="background:var(--old)"></i>老遊戲+營收較去年成長　29 款</span>
+        <span><i style="background:var(--old);opacity:.35"></i>老遊戲+營收較去年衰退　43 款</span>
+        <span><i style="background:var(--pending)"></i>老遊戲+2025年10月後上線　9 款</span>
+        <span><i style="background:var(--brand)"></i>新遊戲　19 款</span>
       </div>
-      <p class="take">Top 100 有 85 個位置被老遊戲占住，但其中將近一半（38 款）營收正在下滑。新遊戲搶不到位置，老遊戲也守得很吃力。</p>
+      <p class="take">Top 100 有 81 個位置被老遊戲占住；其中去年同期已上線的 72 款裡，有 43 款營收比去年少。新遊戲搶不到位置，老遊戲也守得很吃力。</p>
     </div>
   </div>
 
   <div class="panel wide">
-    <h3>老遊戲退得比市場慢，所以占比反而上升</h3>
-    <p class="sub">(2026年1–9月與前一期間比較)</p>
+    <h3>老遊戲衰退得比市場還快</h3>
+    <p class="sub">(2026年1–9月與2025年1–9月比較，不含博奕類)</p>
     <div class="trio">
-      <div><strong>▼3.5%</strong><span>整體市場營收</span></div>
-      <div><strong>▼1.8%</strong><span>Top 100 老遊戲營收</span></div>
-      <div><strong>38 / 85</strong><span>Top 100 老遊戲中衰退的款數</span></div>
+      <div><strong>▼3.6%</strong><span>整體市場營收</span></div>
+      <div><strong>▼7.7%</strong><span>Top 100 老遊戲營收（72 款）</span></div>
+      <div><strong>43 / 72</strong><span>Top 100 老遊戲中衰退的款數</span></div>
     </div>
-    <p class="take">整個市場的餅在變小，老遊戲也跟著縮，只是縮得比較慢。玩家留在熟悉的遊戲裡、不太有興趣去嘗鮮，新遊戲能分到的部分自然越來越少。對營運方來說，在這個市場裡「讓產品不衰退」本身就已經是贏面。</p>
+    <p class="take">整個市場的餅比去年同期少了3.6%，Top100老遊戲卻少了7.7%，跌得比市場還多。老遊戲占比之所以還在上升，一是新遊戲能補上的更少，二是2025年10月以後上線的產品（例如《燕雲十六聲》）依定義被歸為老遊戲，撐住了一部分營收。玩家留在熟悉的遊戲裡、不太有興趣去嘗鮮，新遊戲能分到的部分自然越來越少。對營運方來說，在這個市場裡「讓產品不衰退」本身就已經是贏面。</p>
+  </div>
+
+  <div class="panel wide">
+    <h3>玩家：人變少，留下來的付得更多</h3>
+    <p class="sub">(2026年1–9月與2025年1–9月比較，不含博奕類)</p>
+    <div class="trio">
+      <div><strong>▼7.9%</strong><span>整體市場 MAU</span></div>
+      <div><strong>44 / 72</strong><span>Top 100 老遊戲中 MAU 下滑的款數</span></div>
+      <div><strong>▼12.5%</strong><span>老遊戲 MAU 變化（中位數）</span></div>
+    </div>
+    <div class="dist" role="img" aria-label="72款老遊戲MAU變化分布：跌30%以上11款、跌10至30%27款、持平11款、升10至30%11款、升30%以上12款">
+      <p class="dist-t">72 款老遊戲的 MAU 變化分布</p>
+      <div class="dr"><span>跌 30% 以上</span><div class="track"><div class="fill" style="width:36.7%;background:var(--old)"></div></div><em>11 款</em></div><div class="dr"><span>跌 10–30%</span><div class="track"><div class="fill" style="width:90.0%;background:var(--old)"></div></div><em>27 款</em></div><div class="dr"><span>持平（±10%）</span><div class="track"><div class="fill" style="width:36.7%;background:var(--pending)"></div></div><em>11 款</em></div><div class="dr"><span>升 10–30%</span><div class="track"><div class="fill" style="width:36.7%;background:var(--brand)"></div></div><em>11 款</em></div><div class="dr"><span>升 30% 以上</span><div class="track"><div class="fill" style="width:40.0%;background:var(--brand)"></div></div><em>12 款</em></div>
+    </div>
+    <p class="take">整體市場的月活躍玩家（MAU）比去年同期少了7.9%，營收只少3.6%，平均每位玩家帶來的營收增加4.6%。Top100老遊戲也是同樣的狀況：MAU下滑的44款，玩家少了24%、營收少了21%，留下來的玩家付得比去年多。但多付的部分補不回流失的人數，所以營收仍然在退。</p>
+    <p class="src">資料來源：Sensor Tower 應用排行榜（MAU），台港澳，iOS + Google Play，2026/1/1–9/30 與 2025/1/1–9/30。MAU 為期間平均月活躍用戶估算值；市場 MAU 為前 10,000 名遊戲的 MAU 加總，同一玩家玩多款遊戲會重複計算。</p>
   </div>
 </section>
 
 <section class="page ch wrap" id="p3" data-title="新遊戲">
   <p class="ch-no">3</p>
-  <h2>2,093 款新遊戲，只有 8 款賺超過 500 萬美元</h2>
+  <h2>2,010 款新遊戲，只有 8 款賺超過 500 萬美元</h2>
   <div class="prose">
-    <p>2026 年上線、有產生營收的新遊戲共 2,093 款。前 10 名新遊戲拿走所有新遊戲營收的 36%；進入 Top 100 的門檻是 310 萬美元(2026YTD)，只有 15 款新遊戲達標。</p>
+    <p>2026 年上線、有產生營收的新遊戲共 2,010 款（不含博奕類）。前 10 名新遊戲拿走所有新遊戲營收的 36%；1 到 9 月累計營收需達 294 萬美元才能進入 Top 100，只有 19 款新遊戲達標。</p>
   </div>
   <div class="tiers" id="tierLegend" aria-label="營收級距"></div>
   <div class="grid2">
     <div class="panel">
-      <h3>2026年上線新遊戲 - 營收漏斗</h3>
+      <h3>2026 年上線新遊戲：營收漏斗</h3>
+      <p class="sub">長度以對數尺度呈現，2026/1/1–9/30 累計營收</p>
       <div class="funnel" id="funnel"></div>
-      <p class="take">從「有營收」到「破 100 萬美元」只剩 2.3%，到「破 500 萬」只剩 0.4%。新遊戲成績高度兩極，絕大多數產品的營收規模都很小。</p>
+      <p class="take">從「有營收」到「破 100 萬美元」只剩 2.5%，到「破 500 萬」只剩 0.4%。新遊戲成績高度兩極，絕大多數產品的營收規模都很小。</p>
     </div>
     <div class="panel">
-      <h3>2026年上線新遊戲 - 營收前10名</h3>
+      <h3>營收前 10 名新遊戲</h3>
+      <p class="sub">排名為台港澳全部遊戲營收排名，顏色對應營收級距</p>
       <div class="tscroll"><table class="tiered">
         <thead><tr><th>排名</th><th>遊戲</th><th>發行商</th><th class="n">營收 $M</th></tr></thead>
         <tbody id="top10"></tbody>
       </table></div>
-      <p class="take">前 10 名全部由原廠自行發行：中國 5 款、韓國 4 款、日本 1 款。RO仙境傳說一款 2,690 萬美元，是第 2 名心動小鎮的 2.4 倍。</p>
+      <p class="src" style="margin-top:8px">* 查無正式繁體中文名稱，暫以原名呈現。</p>
+      <p class="take">前 10 名全部由原廠自行發行：中國 5 款、韓國 4 款、日本 1 款。RO仙境傳說一款 2,763 萬美元，是第 2 名心動小鎮的 2.4 倍。</p>
     </div>
   </div>
   <p class="src">新遊戲定義：前期營收低於本期 5%（前期為等長的前一期間）。資料來源：Sensor Tower，台港澳，iOS + Google Play。</p>
@@ -440,7 +469,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
   <p class="ch-no">4</p>
   <h2>好產品留在原廠手上</h2>
   <div class="prose">
-    <p>2022 到 2026 年，原廠自行發行一直占新遊戲營收的 65%–79%。原廠自發新遊戲的最佳排名始終在 Top 10 內，在地代理的最佳排名則從 #16 一路掉到 #89。同時整個新遊戲市場也在縮小：Top 200 新遊戲營收從 2024 年的 4.39 億美元降到 2025 年的 2.86 億美元。</p>
+    <p>2024 到 2026 年，原廠自行發行占新遊戲營收的比例從 69% 升到 76%。原廠自發新遊戲的最佳排名始終在 Top 10 內，在地代理的最佳排名則從 #22 一路掉到 #77。同時整個新遊戲市場也在縮小：Top 200 新遊戲營收從 2024 年的 4.56 億美元降到 2025 年的 2.94 億美元。</p>
   </div>
 
   <div class="grid2">
@@ -453,7 +482,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
         </div>
       </div>
       <div class="canvas-box sm"><canvas id="modeChart" aria-label="新遊戲發行模式堆疊長條圖"></canvas></div>
-      <p class="src">2026 年原列待確認的 5 款，已依內部確認改列中資原廠自發。</p>
+      <p class="src">「待確認／其他」含發行商身分尚未確認的產品，2026 年另含 VNGGames。</p>
     </div>
     <div class="panel">
       <h3>新遊戲最佳排名</h3>
@@ -470,14 +499,14 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
       <tbody id="duel"></tbody>
     </table></div>
   </div>
-  <p class="src">原廠自發含原廠之海外發行品牌及海外發行商；發行模式依 Sensor Tower 發行商主體判定，待 BD 確認。2026 為 1/1–9/21。</p>
+  <p class="src">原廠自發含原廠之海外發行品牌及海外發行商；發行模式依 Sensor Tower 發行商主體判定，待 BD 確認。2026 為 1/1–9/30，不含博奕類。</p>
 </section>
 
 <section class="page ch wrap" id="p5" data-title="原廠布局">
   <p class="ch-no">5</p>
-  <h2>中國原廠 14 款、韓國原廠 5 款：兩種打台港澳的方式</h2>
+  <h2>中國原廠 17 款、韓國原廠 6 款：兩種打台港澳的方式</h2>
   <div class="prose">
-    <p>2026 年進入營收 Top 200 的新遊戲共 33 款，合計約 1.39 億美元。依發行模式與原廠國籍拆開來看，中國原廠款數和營收都最多，韓國原廠款數少但單款最大，在地代理的產品則集中在 #89 之後。</p>
+    <p>排除博奕類後，2026 年進入營收 Top 200 的新遊戲共 42 款，合計約 1.58 億美元，其中 76% 來自原廠自行發行。依發行模式與原廠國籍拆開來看，中國原廠款數和營收都最多，韓國原廠款數少但單款最大，在地代理的產品則集中在 #77 之後。</p>
   </div>
 
   <div class="grid2">
@@ -496,29 +525,29 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
   <div class="notes">
     <div>
       <h4><i style="background:var(--brand);opacity:.65"></i>中國原廠：多而廣</h4>
-      <p>14 款、5,420 萬美元，款數與營收都是第一，排名從 #25 散到 #187。品類從二次元、SLG、搜打撤射擊到合成休閒都有，心動、鷹角、B站、完美世界，以及荷馬娛樂、悟空數位、鯨娛遊戲等中資發行商都直接經營台港澳。</p>
+      <p>17 款、6,070 萬美元，款數與營收都是第一，排名從 #20 散到 #199。品類從二次元、SLG、搜打撤射擊到合成休閒都有，心動、鷹角、B站、完美世界、網易，以及荷馬娛樂、悟空數位、鯨娛遊戲等中資發行商都直接經營台港澳。</p>
     </div>
     <div>
       <h4><i style="background:var(--brand)"></i>韓國原廠：少而大</h4>
-      <p>5 款、4,700 萬美元，平均每款 940 萬，單款規模最大。Gravity、Nexon 以自家經典 IP 回歸，Netmarble、Supermagic 也選擇自行發行；不過 RO仙境傳說一款就占韓系的 57%，排除後平均約 500 萬。</p>
+      <p>6 款、5,060 萬美元，平均每款 840 萬，單款規模最大。Gravity、Nexon、Devsisters 以自家經典 IP 回歸，Netmarble、Supermagic 也選擇自行發行；不過 RO仙境傳說一款就占韓系的 55%，排除後平均約 460 萬。</p>
     </div>
     <div>
       <h4><i style="background:var(--brand);opacity:.4"></i>日本原廠：靠 IP</h4>
-      <p>3 款、850 萬美元，hololive、SEGA 足球與勇者鬥惡龍都是既有 IP 改編，平均每款不到 300 萬。日系原廠自發多半是 IP 帶量，規模有限。</p>
+      <p>3 款、900 萬美元，hololive、SEGA 足球與勇者鬥惡龍都是既有 IP 改編，平均每款約 300 萬。日系原廠自發多半是 IP 帶量，規模有限。</p>
     </div>
   </div>
   <div class="notes" style="margin-top:28px">
     <div>
       <h4><i style="background:var(--agency)"></i>在地代理：二線產品為主</h4>
-      <p>10 款、2,670 萬美元，平均每款 270 萬，最佳排名 #89。Joy Star Games、Joy Net Games、Efun 各有 2 款，三家合計占代理營收約 67%。</p>
+      <p>10 款、2,800 萬美元，平均每款 280 萬，最佳排名 #77。Joy Star Games、Joy Net Games、Efun 各有 2 款，三家合計占代理營收約 69%。</p>
     </div>
     <div>
-      <h4><i style="background:var(--ink-3)"></i>重新歸類後</h4>
-      <p>原先列為待確認的 5 款，經確認皆為中資原廠自發。重新歸類後，原廠自發占 Top 200 新遊戲營收從簡報的 69% 升到 79%，在地代理維持約 19%。</p>
+      <h4><i style="background:var(--pending)"></i>待確認：5 款</h4>
+      <p>錫葛尼斯：紅月再臨、不正經魔王軍、Wild Water World、鬼雄三國、車車屍搭普，合計 720 萬美元，排名都在 #184 之後，發行商身分仍待 BD 確認。</p>
     </div>
     <div>
       <h4><i style="background:var(--vng)"></i>VNGGames</h4>
-      <p>Ballistic Hero 排名 #133、營收 230 萬美元，約占 Top 200 新遊戲營收的 2%，與在地代理的平均水準相當。</p>
+      <p>Ballistic Hero 排名 #122、營收 230 萬美元，約占 Top 200 新遊戲營收的 1.5%，略低於在地代理的平均水準。</p>
     </div>
   </div>
 
@@ -535,13 +564,13 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
       </tr></thead>
       <tbody id="list"></tbody>
     </table></div>
-    <p class="src">研究方法：Sensor Tower，台港澳，iOS + Google Play，2026/1/1–9/21，營收前 10,000 名遊戲。新遊戲定義：前期營收低於本期 5%。發行模式依發行商主體判定；原列待確認之 5 款已依內部確認改列中資原廠自發。</p>
+    <p class="src">研究方法：Sensor Tower 應用排行榜，台港澳，iOS + Google Play，2026/1/1–9/30，營收前 10,000 名遊戲，已排除博奕類。新遊戲定義：前期營收低於本期 5%。發行模式依發行商主體判定，荷馬娛樂、悟空數位、鯨娛遊戲、LMD Games、蝌蚪互動娛樂依內部確認列為中資原廠自發。</p>
   </div>
 </section>
 
 <section class="page ch wrap" id="p6" data-title="結論與出路">
   <p class="ch-no">6</p>
-  <h2>下載 ▼58%、老遊戲占九成、代理最佳只到 #89：在地發行商得換一條路走</h2>
+  <h2>下載 ▼58%、老遊戲占 87%、代理最佳只到 #77：在地發行商得換一條路走</h2>
   <div class="prose">
     <p>把前面六頁收斂起來，台港澳手遊市場的變化可以歸納成五個重點。它們加在一起，讓過去「拿到好產品、代理上市、靠新品衝營收」的在地發行模式越來越難成立。</p>
   </div>
@@ -549,10 +578,10 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
   <h3 class="sec">研究重點</h3>
   <div class="keys">
     <a class="key" href="#p1"><span class="kn">01</span><strong>▼58%</strong><b>市場已經飽和</b><p>下載量十年少了一半以上，每次下載營收卻翻了 7 倍，營收靠老玩家撐住。</p><em>看「市場飽和」›</em></a>
-    <a class="key" href="#p2"><span class="kn">02</span><strong>90%</strong><b>老遊戲把持頭部</b><p>Top 100 九成營收來自老遊戲，但 85 款中 38 款在衰退，整個餅在縮小。</p><em>看「老遊戲」›</em></a>
-    <a class="key" href="#p3"><span class="kn">03</span><strong>8 / 2,093</strong><b>新遊戲高度兩極</b><p>只有 8 款新遊戲營收破 500 萬美元；新遊戲占 Top 1000 營收兩年從 25.8% 掉到 13.7%。</p><em>看「新遊戲」›</em></a>
-    <a class="key" href="#p4"><span class="kn">04</span><strong>79%</strong><b>好產品留在原廠</b><p>Top 200 新遊戲營收有 79% 來自原廠自行發行，新遊戲前 10 名全部是原廠自發。</p><em>看「發行模式」›</em></a>
-    <a class="key" href="#p5"><span class="kn">05</span><strong>#16 → #89</strong><b>代理的天花板一路下降</b><p>代理新遊戲最佳排名四年內從 #16 掉到 #89；光是中國原廠就有 14 款新遊戲直接經營台港澳。</p><em>看「原廠布局」›</em></a>
+    <a class="key" href="#p2"><span class="kn">02</span><strong>87%</strong><b>老遊戲把持頭部</b><p>Top 100 有 87% 營收來自老遊戲，但去年已上線的 72 款中，有 43 款營收比去年少。</p><em>看「老遊戲」›</em></a>
+    <a class="key" href="#p3"><span class="kn">03</span><strong>8 / 2,010</strong><b>新遊戲高度兩極</b><p>只有 8 款新遊戲營收破 500 萬美元；新遊戲占 Top 1000 營收兩年從 29.7% 掉到 16.2%。</p><em>看「新遊戲」›</em></a>
+    <a class="key" href="#p4"><span class="kn">04</span><strong>76%</strong><b>好產品留在原廠</b><p>Top 200 新遊戲營收有 76% 來自原廠自行發行，新遊戲前 10 名全部是原廠自發。</p><em>看「發行模式」›</em></a>
+    <a class="key" href="#p5"><span class="kn">05</span><strong>#22 → #77</strong><b>代理的天花板一路下降</b><p>代理新遊戲最佳排名兩年內從 #22 掉到 #77；光是中國原廠就有 17 款新遊戲直接經營台港澳。</p><em>看「原廠布局」›</em></a>
   </div>
 
   <h3 class="sec">在地發行商的處境</h3>
@@ -561,7 +590,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
       <h3>正在失去的</h3>
       <p class="sub">過去的優勢，現在被原廠和市場拿走</p>
       <ul>
-        <li><b>一線產品來源</b>：原廠把好產品留給自己，代理拿到的多是年營收 180 萬到 350 萬美元的二線產品</li>
+        <li><b>一線產品來源</b>：原廠把好產品留給自己，代理拿到的多是營收 180 萬到 370 萬美元的二線產品</li>
         <li><b>新品紅利</b>：新遊戲占比兩年腰斬，靠新品上市衝營收的模式失靈</li>
         <li><b>議價空間</b>：可代理的好產品變少，代理商之間搶同一批產品，授權條件難談</li>
       </ul>
@@ -584,7 +613,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
     <article class="panel">
       <h3>從代理商轉為原廠的在地服務夥伴</h3>
       <dl>
-        <dt>為什麼</dt><dd>原廠自發占新遊戲營收 79%。好產品不會再拿出來代理，但原廠在台港澳仍需要在地團隊。</dd>
+        <dt>為什麼</dt><dd>原廠自發占新遊戲營收 76%。好產品不會再拿出來代理，但原廠在台港澳仍需要在地團隊。</dd>
         <dt>怎麼做</dt><dd>把營運、行銷投放、客服社群、金流、代言與 KOL 打包成服務，以服務費加分潤的方式合作。優先鎖定已自行發行、但在地團隊較薄的中型原廠。</dd>
         <dt>關鍵指標</dt><dd>服務合作案數、合作產品營收、續約率</dd>
       </dl>
@@ -592,7 +621,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
     <article class="panel">
       <h3>承接老遊戲的長線營運</h3>
       <dl>
-        <dt>為什麼</dt><dd>老遊戲占 Top 100 九成營收，但 38 款在衰退。在飽和市場裡，能讓產品延壽本身就是價值。</dd>
+        <dt>為什麼</dt><dd>老遊戲占 Top 100 將近九成營收，但去年已上線的 72 款中有 43 款在衰退，合計少了 7.7%。在飽和市場裡，能讓產品延壽本身就是價值。</dd>
         <dt>怎麼做</dt><dd>承接原廠想縮編的成熟產品，或幫既有產品做改版、聯名、回流活動。把營運方法標準化，讓同一套流程可以套用到多款產品。</dd>
         <dt>關鍵指標</dt><dd>產品年衰退率、回流玩家占比、付費玩家留存率</dd>
       </dl>
@@ -600,7 +629,7 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
     <article class="panel">
       <h3>代理選品改打中段與利基</h3>
       <dl>
-        <dt>為什麼</dt><dd>代理新遊戲最佳 #89，10 款營收集中在 180 萬到 350 萬美元。搶一線產品勝率很低，中段才是代理實際拿得下的市場。</dd>
+        <dt>為什麼</dt><dd>代理新遊戲最佳 #77，10 款營收集中在 180 萬到 370 萬美元。搶一線產品勝率很低，中段才是代理實際拿得下的市場。</dd>
         <dt>怎麼做</dt><dd>以年營收 200 萬到 500 萬美元為選品目標，壓低授權金與預付；優先看合成休閒、放置 RPG 等在 Top 200 已有成績的品類，並用數據模型評估候選產品。</dd>
         <dt>關鍵指標</dt><dd>單款回收期、投資報酬率、選品命中率</dd>
       </dl>
@@ -633,10 +662,12 @@ footer{margin-top:40px;padding:20px 0 40px;font-size:13px;color:var(--ink-3)}
   <div class="caveats prose">
     <h3 style="font-size:16px;margin:0 0 8px">資料口徑提醒</h3>
     <ul>
-      <li>發行模式依 Sensor Tower 發行商主體判定；2026 年原列待確認的 5 款已改列中資原廠自發，其餘仍待確認，部分「在地代理」可能為原廠關係企業。</li>
-      <li>市場年減幅度依期間不同：1–9 月全月口徑為 ▼3.5%，1/1–9/21 為 ▼3.3%。</li>
-      <li>2024、2025 新遊戲占比取自 Business Plan 2026；2026 依相同 Top 1000 口徑以 Sensor Tower 計算。</li>
-      <li>娛樂城與麻將類依遊戲名稱關鍵字判定，占 Top 100 營收 16.6%。</li>
+      <li>第 1 到 6 頁使用 Sensor Tower 應用排行榜（營收前 10,000 名遊戲），期間為 2024/1/1–2026/9/30；2025 年數據以 2024–2025 兩年累計減去 2024 年計算。</li>
+      <li>博奕類依遊戲名稱關鍵字排除（娛樂城、麻將、老虎機、捕魚機、撲克、Slots、Casino 等），約占各年度營收的 13%。</li>
+      <li>年增減一律與去年同期（2025 年 1–9 月）比較。新遊戲判定仍沿用簡報定義（前期營收低於本期 5%，前期為與本期等長的前一段期間），因此 2025 年 10 月以後上線的 9 款產品被歸為老遊戲，但未納入老遊戲的年增減計算。</li>
+      <li>發行模式依 Sensor Tower 發行商主體判定，部分「在地代理」可能為原廠關係企業；2024、2025 年有較多產品列為待確認，需 BD 協助歸類。</li>
+      <li>總覽頁的 2014–2026 長期趨勢為全市場口徑，含博奕類。</li>
+      <li>老遊戲頁的玩家人數分析使用 MAU（月活躍用戶）數據，2026 年 1–9 月對比 2025 年 1–9 月。</li>
     </ul>
   </div>
 </section>
@@ -670,62 +701,69 @@ const rev=[0.43,0.77,1.02,1.18,1.43,1.8,2.19,2.59,2.54,2.45,2.33,2.36,1.66];
 const dl=[473,643,533,403,367,373,376,341,322,312,309,270,175];
 const rpd=rev.map((r,i)=>+(r*1000/dl[i]).toFixed(2));
 
-const MODES={self:'原廠自發',agency:'在地代理',vng:'VNGGames'};
+const MODES={self:'原廠自發',agency:'在地代理',pending:'待確認',vng:'VNGGames'};
 const games=[
-[8,'RO仙境傳說：世界之旅','','GRAVITY','self','KR',26.9],
-[25,'Heartopia','心動小鎮','XD','self','CN',11.3],
-[41,'Arknights: Endfield','明日方舟：終末地','Hypergryph','self','CN',7.3],
-[47,'Mabinogi Mobile','瑪奇 online','Nexon','self','KR',6.8],
-[52,'Co-op Tower Defense','','Supermagic','self','KR',6.2],
-[60,'三國：謀定天下','','Bilibili','self','CN',5.7],
-[65,'Vampir','','Netmarble','self','KR',5.4],
-[66,'hololive Dreams','','CyberAgent','self','JP',5.3],
-[79,'Neverness to Everness','異環','Perfect World','self','CN',4.1],
-[88,'無盡輪迴：鬼域摸金','','荷馬娛樂','self','CN',3.7],
-[89,'青丘世界：緣起','','Joy Star Games','agency','',3.5],
-[91,'Dicero!','','Habby','self','CN',3.5],
-[92,'新熱血江湖：世界','','Efun','agency','',3.4],
-[93,'鬥破蒼穹M：少年崛起','','Joy Star Games','agency','',3.4],
-[99,'夢幻茶樓','','悟空數位','self','CN',3.2],
-[104,'誰來救救我','','鯨娛遊戲','self','CN',3.0],
-[105,'勇者來開團','','Joy Net Games','agency','',3.0],
-[117,'Duck Survival','','Joy Net Games','agency','',2.8],
-[119,'永夜降臨：雙面魅影','','CHUANG COOL','agency','',2.7],
-[120,'Foundation: Galactic Frontier','','FunPlus','self','CN',2.7],
-[131,'勇者逗逗龍','','Ujoy Games','agency','',2.3],
-[133,'Ballistic Hero','','VNG','vng','',2.3],
-[134,'Clash of Critters','','Farlight Games','self','CN',2.3],
-[149,'Hollywood Merge','','Yotta Games','self','CN',2.0],
-[154,'生存33天','','37 Interactive','self','CN',1.9],
-[161,'魔女與龍：光暗篇章','','Efun','agency','',1.9],
-[165,'Pew Pew Slime - Idle RPG','','X-LEGEND','agency','',1.9],
-[169,'魔力寶貝：重返法蘭','','Chuang Games','agency','',1.8],
-[176,'超時空街球對決','','LMD Games','self','CN',1.8],
-[181,'Overgeared Hero','','5minLab','self','KR',1.7],
-[187,'JUMP 全明星亂鬥','','蝌蚪互動娛樂','self','CN',1.7],
-[193,'SEGA Football Club Champions','','Sega','self','JP',1.6],
-[194,'Dragon Quest Smash/Grow','','Square Enix','self','JP',1.6]
+[7, "RO仙境傳說：世界之旅", "", "GRAVITY", "self", "KR", 27.6],
+[20, "心動小鎮", "", "XD", "self", "CN", 11.7],
+[32, "瑪奇 online", "", "Nexon", "self", "KR", 7.6],
+[35, "明日方舟：終末地", "", "Hypergryph", "self", "CN", 7.3],
+[39, "Co-op Tower Defense", "", "Supermagic", "self", "KR", 6.5],
+[49, "三國：謀定天下", "", "Bilibili", "self", "CN", 6.0],
+[52, "hololive Dreams", "", "CyberAgent", "self", "JP", 5.8],
+[55, "Vampir", "", "Netmarble", "self", "KR", 5.4],
+[69, "異環", "", "Perfect World", "self", "CN", 4.2],
+[76, "無盡輪迴：鬼域摸金", "", "荷馬娛樂", "self", "CN", 3.7],
+[77, "鬥破蒼穹M：少年崛起", "", "Joy Star Games", "agency", "", 3.7],
+[78, "青丘世界：緣起", "", "Joy Star Games", "agency", "", 3.6],
+[80, "Dicero!", "", "Habby", "self", "CN", 3.6],
+[81, "新熱血江湖：世界", "", "Efun", "agency", "", 3.5],
+[82, "Duck Survival", "", "Joy Net Games", "agency", "", 3.5],
+[86, "夢幻茶樓", "", "悟空數位", "self", "CN", 3.3],
+[92, "誰來救救我", "", "鯨娛遊戲", "self", "CN", 3.1],
+[93, "勇者來開團", "", "Joy Net Games", "agency", "", 3.1],
+[95, "Clash of Critters", "", "Farlight Games", "self", "CN", 3.0],
+[105, "永夜降臨：雙面魅影", "", "CHUANG COOL 创酷", "agency", "", 2.7],
+[106, "Foundation: Galactic Frontier", "", "FunPlus", "self", "CN", 2.7],
+[119, "勇者逗逗龍", "", "Ujoy Games", "agency", "", 2.3],
+[122, "Ballistic Hero", "", "VNG", "vng", "", 2.3],
+[126, "Hollywood Merge", "", "Yotta Games", "self", "CN", 2.2],
+[135, "生存33天", "", "37 Interactive Entertainment", "self", "CN", 2.0],
+[144, "魔女與龍：光暗篇章", "", "Efun", "agency", "", 1.9],
+[145, "Pew Pew Slime - Idle RPG", "", "X-LEGEND Entertainment", "agency", "", 1.9],
+[154, "Overgeared Hero", "", "5minLab", "self", "KR", 1.8],
+[156, "魔力寶貝：重返法蘭", "", "Chuang Games Entertainment", "agency", "", 1.8],
+[159, "超時空街球對決", "", "LMD Games", "self", "CN", 1.8],
+[165, "JUMP 全明星亂鬥", "", "蝌蚪互動娛樂", "self", "CN", 1.7],
+[170, "CookieRun: Crumble", "", "Devsisters", "self", "KR", 1.7],
+[175, "Dragon Quest Smash/Grow", "", "Square Enix", "self", "JP", 1.6],
+[177, "SEGA Football Club Champions", "", "Sega", "self", "JP", 1.6],
+[184, "錫葛尼斯：紅月再臨", "", "GEEKLAB R&D", "pending", "", 1.5],
+[185, "不正經魔王軍", "", "Fun Journey Network Technology", "pending", "", 1.5],
+[187, "時尚百貨城", "", "HaoPlay (Hainan Haowan Entertainment)", "self", "CN", 1.5],
+[189, "賽爾號：巔峰之戰", "", "Taiwan Taomee", "self", "CN", 1.5],
+[191, "Wild Water World", "", "IYAGAMES", "pending", "", 1.4],
+[196, "鬼雄三國：主公有夠鬼", "", "MAX GAME", "pending", "", 1.4],
+[197, "車車屍搭普", "", "Poker City", "pending", "", 1.4],
+[199, "世界之外", "", "NetEase", "self", "CN", 1.4]
 ].map(g=>({rank:g[0],name:g[1],zh:g[2],pub:g[3],mode:g[4],cc:g[5],rev:g[6]}));
 const CC={KR:'韓國',CN:'中國',JP:'日本'};
 const duel=[
-['2022',[8,'奧丁：神叛','Kakao Games','3,500','奧丁：神叛'],[16,'永夜星神','SPGame','2,280','永夜星神']],
-['2023',[7,'崩壞：星穹鐵道','miHoYo','3,670','星穹鐵道'],[18,'暮色雙城','SPGame','1,970','暮色雙城']],
-['2024',[1,'Last War: Survival','FUNFLY','6,810','Last War'],[28,'救世者之樹：新世界','Qookka Games','1,440','救世者之樹']],
-['2025',[5,'SD鋼彈G世代 永恆','Bandai Namco','3,850','SD鋼彈'],[42,'不休旅途：繪卷世界','Joy Net Games','1,160','不休旅途']],
-['2026*',[8,'RO仙境傳說：世界之旅','Gravity','2,690','RO仙境傳說'],[89,'青丘世界：緣起','Joy Star Games','350','青丘世界']]
+['2024',[1,'Last War: Survival','FUNFLY','6,809','Last War'],[22,'救世者之樹：新世界','Qookka Games','1,440','救世者之樹']],
+['2025',[4,'SD鋼彈G世代 永恆','Bandai Namco','3,855','SD鋼彈'],[34,'不休旅途：繪卷世界','Joy Net Games','1,164','不休旅途']],
+['2026*',[7,'RO仙境傳說：世界之旅','Gravity','2,763','RO仙境傳說'],[77,'鬥破蒼穹M：少年崛起','Joy Star Games','367','鬥破蒼穹M']]
 ];
 
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const modeColor=m=>({self:css('--brand'),agency:css('--agency'),vng:css('--vng')}[m]);
+const modeColor=m=>({self:css('--brand'),agency:css('--agency'),pending:css('--pending'),vng:css('--vng')}[m]);
 
 /* static HTML blocks */
-const shares=[['Top 50',6.8],['Top 100',10.0],['Top 200',11.5],['Top 500',13.4],['全部遊戲',13.8]];
+const shares=[['Top 50',9.7],['Top 100',13.0],['Top 200',14.6],['Top 500',15.9],['全部遊戲',16.3]];
 document.getElementById('shareBars').innerHTML=shares.map(([k,v])=>`<div class="sb"><span>${k}</span><div class="track" role="img" aria-label="${k} 新遊戲占 ${v}%"><div class="fill" style="width:${v/100*100}%"></div></div><em>${v.toFixed(1)}%</em></div>`).join('');
 
 const TIERS=[{v:'--t5',l:'有營收',tt:'var(--ink)'},{v:'--t4',l:'≥ $100K',tt:'var(--ink)'},{v:'--t3',l:'≥ $1M',tt:'#fff'},{v:'--t2',l:'≥ $5M',tt:'#fff'},{v:'--t1',l:'≥ $10M',tt:'#fff'}];
-const fn=[[2093,'有產生營收'],[202,'營收 ≥ $100K'],[49,'營收 ≥ $1M'],[8,'營收 ≥ $5M'],[2,'營收 ≥ $10M']];
-const lmax=Math.log10(2093);
+const fn=[[2010,'有產生營收'],[211,'營收 ≥ $100K'],[51,'營收 ≥ $1M'],[8,'營收 ≥ $5M'],[2,'營收 ≥ $10M']];
+const lmax=Math.log10(2010);
 document.getElementById('funnel').innerHTML=fn.map(([n,l],i)=>`<div class="fn"><div class="bar" style="width:${Math.max(Math.log10(n)/lmax*100,8)}%;background:var(${TIERS[i].v});color:${TIERS[i].tt}">${n.toLocaleString()}</div><small>${l}</small></div>`).join('');
 document.getElementById('tierLegend').innerHTML='營收級距：'+[4,3,2].map(i=>`<span><i style="background:var(${TIERS[i].v})"></i>${TIERS[i].l}</span>`).join('');
 const tierOf=r=>r>=10?4:r>=5?3:r>=1?2:r>=0.1?1:0;
@@ -734,7 +772,7 @@ document.getElementById('top10').innerHTML=games.slice(0,10).map(g=>{const t=TIE
 
 document.getElementById('duel').innerHTML=duel.map(([y,a,b])=>`<tr><td class="n" style="text-align:left">${y}</td><td><span class="rk">#${a[0]}</span>${esc(a[1])}<span class="zh">${esc(a[2])}，${a[3]} 萬美元</span></td><td><span class="rk">#${b[0]}</span>${esc(b[1])}<span class="zh">${esc(b[2])}，${b[3]} 萬美元</span></td></tr>`).join('');
 
-document.getElementById('waffle').innerHTML=Array.from({length:100},(_,i)=>i<47?'<i style="background:var(--old)"></i>':i<85?'<i style="background:var(--old);opacity:.35"></i>':'<i style="background:var(--brand)"></i>').join('');
+document.getElementById('waffle').innerHTML=Array.from({length:100},(_,i)=>i<29?'<i style="background:var(--old)"></i>':i<72?'<i style="background:var(--old);opacity:.35"></i>':i<81?'<i style="background:var(--pending)"></i>':'<i style="background:var(--brand)"></i>').join('');
 
 /* origin aggregation */
 function origin(){
@@ -743,6 +781,7 @@ function origin(){
     {k:'中國原廠',s:'原廠自發',f:g=>g.mode==='self'&&g.cc==='CN',c:'--brand',o:.65},
     {k:'日本原廠',s:'原廠自發',f:g=>g.mode==='self'&&g.cc==='JP',c:'--brand',o:.4},
     {k:'在地代理',s:'',f:g=>g.mode==='agency',c:'--agency',o:1},
+    {k:'待確認',s:'',f:g=>g.mode==='pending',c:'--pending',o:1},
     {k:'VNGGames',s:'',f:g=>g.mode==='vng',c:'--vng',o:1}
   ].map(o=>{const l=games.filter(o.f);const t=l.reduce((a,g)=>a+g.rev,0);return {...o,n:l.length,t}});
   const max=Math.max(...groups.map(g=>g.t));
@@ -761,7 +800,7 @@ function renderList(){
   let l=games.filter(g=>(state.mode==='all'||g.mode===state.mode)&&(!state.q||(g.name+g.zh+g.pub).toLowerCase().includes(state.q)));
   l.sort((a,b)=>(a[state.sort]-b[state.sort])*state.dir);
   const t=l.reduce((a,g)=>a+g.rev,0);
-  document.getElementById('sum').textContent=l.length?`${l.length} 款，營收合計 $${t.toFixed(1)}M，占 Top 200 新遊戲 ${(t/138.7*100).toFixed(0)}%`:'沒有符合的遊戲，試著換個關鍵字或篩選條件。';
+  document.getElementById('sum').textContent=l.length?`${l.length} 款，營收合計 $${t.toFixed(1)}M，占 Top 200 新遊戲 ${(t/158.2*100).toFixed(0)}%`:'沒有符合的遊戲，試著換個關鍵字或篩選條件。';
   document.getElementById('list').innerHTML=l.map(g=>`<tr class="${g.mode==='vng'?'vng':''}"><td class="n" style="text-align:left">#${g.rank}</td><td>${esc(g.name)}${g.zh?`<span class="zh">${esc(g.zh)}</span>`:''}</td><td>${esc(g.pub)}</td><td><span class="tag"><i style="background:${modeColor(g.mode)}"></i>${MODES[g.mode]}${g.cc?`（${CC[g.cc]}）`:''}</span></td><td class="n">${g.rev.toFixed(1)}</td></tr>`).join('');
 }
 renderList();
@@ -800,7 +839,7 @@ document.addEventListener('keydown',e=>{
 /* charts */
 if(typeof Chart==='undefined'){document.querySelectorAll('canvas').forEach(c=>{c.parentNode.innerHTML='<p class="src">圖表元件未能載入，請重新整理頁面。</p>'});show(fromHash());return}
 let charts={};let heroMode='both';let modeMode='abs';
-const modeData={self:[311,258,317,219,110],agency:[67,104,70,49,27],other:[61,34,52,18,2]};
+const modeData={self:[314,212,121],agency:[67,47,28],other:[75,35,10]};
 
 function base(){
   const ink2=css('--ink-2'),grid=css('--grid');
@@ -842,7 +881,7 @@ const pointLabels={id:'pointLabels',afterDatasetsDraw(chart,args,opts){
 function modeCfg(c){
   const tot=modeData.self.map((v,i)=>v+modeData.agency[i]+modeData.other[i]);
   const val=k=>modeMode==='pct'?modeData[k].map((v,i)=>+(v/tot[i]*100).toFixed(1)):modeData[k];
-  return {type:'bar',data:{labels:['2022','2023','2024','2025','2026*'],datasets:[
+  return {type:'bar',data:{labels:['2024','2025','2026*'],datasets:[
       {label:'原廠自發',data:val('self'),backgroundColor:c.brand},
       {label:'在地代理',data:val('agency'),backgroundColor:c.agency},
       {label:'待確認／其他',data:val('other'),backgroundColor:c.pending}]},
@@ -854,24 +893,24 @@ const B={};
 B.hero=c=>new Chart(document.getElementById('heroChart'),heroCfg(c));
 B.tier=c=>new Chart(document.getElementById('tierChart'),{type:'bar',
     data:{labels:['Top 100','Top 500','Top 1000'],datasets:[
-      {label:'2024',data:[24.9,26.0,25.8],backgroundColor:c.brand},
-      {label:'2025',data:[15.0,18.2,18.5],backgroundColor:c.agency},
-      {label:'2026 YTD',data:[10.0,13.4,13.7],backgroundColor:c.pending}]},
+      {label:'2024',data:[30.6,30.2,29.7],backgroundColor:c.brand},
+      {label:'2025',data:[18.0,21.3,21.5],backgroundColor:c.agency},
+      {label:'2026 YTD',data:[13.0,15.9,16.2],backgroundColor:c.pending}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top',align:'start',labels:{usePointStyle:true,boxWidth:8,boxHeight:8,padding:14}},tooltip:{...tip(c),callbacks:{label:x=>` ${x.dataset.label}：${x.parsed.y}%`}}},
-      scales:{x:{grid:{display:false}},y:{beginAtZero:true,max:30,grid:{color:c.grid},border:{display:false},ticks:{callback:v=>v+'%'}}}}});
+      scales:{x:{grid:{display:false}},y:{beginAtZero:true,max:35,grid:{color:c.grid},border:{display:false},ticks:{callback:v=>v+'%'}}}}});
 B.old=c=>new Chart(document.getElementById('oldChart'),{type:'line',
     data:{labels:['2024','2025','2026 YTD'],datasets:[
-      {label:'Top 100',data:[75.1,85.0,90.0],borderColor:c.old,backgroundColor:c.old,borderWidth:3,pointRadius:5},
-      {label:'Top 500',data:[74.0,81.8,86.6],borderColor:c.brand,backgroundColor:c.brand,borderWidth:2,pointRadius:4},
-      {label:'Top 1000',data:[74.2,81.5,86.3],borderColor:c.agency,backgroundColor:c.agency,borderWidth:2,pointRadius:4,borderDash:[5,4]}]},
+      {label:'Top 100',data:[69.4,82.0,87.0],borderColor:c.old,backgroundColor:c.old,borderWidth:3,pointRadius:5},
+      {label:'Top 500',data:[69.8,78.7,84.1],borderColor:c.brand,backgroundColor:c.brand,borderWidth:2,pointRadius:4},
+      {label:'Top 1000',data:[70.3,78.5,83.8],borderColor:c.agency,backgroundColor:c.agency,borderWidth:2,pointRadius:4,borderDash:[5,4]}]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},layout:{padding:{right:8}},
       plugins:{legend:{position:'top',align:'start',labels:{usePointStyle:true,boxWidth:8,boxHeight:8,padding:14}},tooltip:{...tip(c),callbacks:{label:x=>` ${x.dataset.label}：${x.parsed.y.toFixed(1)}%`}}},
-      scales:{x:{grid:{display:false},offset:true},y:{min:70,max:95,grid:{color:c.grid},border:{display:false},ticks:{callback:v=>v+'%',stepSize:5}}}}});
+      scales:{x:{grid:{display:false},offset:true},y:{min:65,max:90,grid:{color:c.grid},border:{display:false},ticks:{callback:v=>v+'%',stepSize:5}}}}});
 B.mode=c=>new Chart(document.getElementById('modeChart'),modeCfg(c));
 B.rank=c=>new Chart(document.getElementById('rankChart'),{type:'line',plugins:[pointLabels],
-    data:{labels:['2022','2023','2024','2025','2026*'],datasets:[
-      {label:'原廠自發',data:[8,7,1,5,8],borderColor:c.brand,backgroundColor:c.brand,pointRadius:5,borderWidth:3},
-      {label:'在地代理',data:[16,18,28,42,89],borderColor:c.agency,backgroundColor:c.agency,pointRadius:5,borderWidth:3}]},
+    data:{labels:['2024','2025','2026*'],datasets:[
+      {label:'原廠自發',data:[1,4,7],borderColor:c.brand,backgroundColor:c.brand,pointRadius:5,borderWidth:3},
+      {label:'在地代理',data:[22,34,77],borderColor:c.agency,backgroundColor:c.agency,pointRadius:5,borderWidth:3}]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
       layout:{padding:{top:document.getElementById('rankChart').parentNode.clientWidth<420?28:14,left:6,right:6}},plugins:{pointLabels:{labels:[duel.map(d=>d[1][4]),duel.map(d=>d[2][4])],colors:[c.brand,c.agency]},legend:{position:'top',align:'start',labels:{usePointStyle:true,boxWidth:8,boxHeight:8,padding:14}},tooltip:{...tip(c),callbacks:{title:x=>x[0].label+' 年',label:x=>{const d=duel[x.dataIndex][x.datasetIndex+1];return ` ${x.dataset.label} #${d[0]} ${d[1]}，${d[3]} 萬美元`}}}},
       scales:{x:{grid:{display:false}},y:{reverse:true,min:-8,max:106,afterBuildTicks:a=>{a.ticks=[1,20,40,60,80,100].map(v=>({value:v}))},grid:{color:c.grid},border:{display:false},ticks:{callback:v=>'#'+v},title:{display:true,text:'排名（越上方越好）',color:c.ink3,font:{size:12}}}}}});
